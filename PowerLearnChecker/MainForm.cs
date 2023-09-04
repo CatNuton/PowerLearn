@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using PowerLearn;
+using PowerLearn.Serialization;
 
 namespace PowerLearnChecker
 {
@@ -46,6 +47,13 @@ namespace PowerLearnChecker
         private void tstbId_TextChanged(object sender, EventArgs e)
         {
             tsbDownload.Enabled = !string.IsNullOrEmpty(tstbId.Text);
+        }
+
+        private async void btnDeleteCurrent_Click(object sender, EventArgs e)
+        {
+            var fs = new FileServer("130.61.26.111", "3001");
+            var test = (Test)bindingSource.Current;
+            await fs.SendVerb("verb", "deleteCompleted", "id", test.Id.ToString(), "name", test.Name);
         }
     }
 }
