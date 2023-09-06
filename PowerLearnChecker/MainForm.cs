@@ -29,6 +29,8 @@ namespace PowerLearnChecker
             try
             {
                 r = await fs.Download("verb", "getList", "id", tstbId.Text);
+                btnDeleteCurrent.Enabled = true;
+                btnDeleteTest.Enabled = true;
             }
             catch (Exception ex)
             {
