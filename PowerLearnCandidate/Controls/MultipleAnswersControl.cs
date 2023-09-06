@@ -82,6 +82,26 @@ namespace PowerLearnCandidate.Controls
             tlpAnswersPanel.Invalidate();
         }
 
+
+        public void ShowAnswers()
+        {
+            var c = 0;
+            AnswerVariant variant;
+            foreach (var answer in question.Answers)
+            {
+                variant = (AnswerVariant)tlpAnswersPanel.Controls[c];
+                if (!answer.IsRight)
+                {
+                    variant.ButtonBackColor = Color.FromArgb(241, 128, 126);
+                }
+                else
+                {
+                    variant.ButtonBackColor = Color.LightGreen;
+                }
+                c++;
+            }
+        }
+
         private void btnApply_Click(object sender, EventArgs e)
         {
             Applied?.Invoke(this, EventArgs.Empty);

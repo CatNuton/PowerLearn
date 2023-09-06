@@ -33,8 +33,6 @@
             this.toolBar = new System.Windows.Forms.ToolStrip();
             this.tslId = new System.Windows.Forms.ToolStripLabel();
             this.tstbId = new System.Windows.Forms.ToolStripTextBox();
-            this.tsbDownload = new System.Windows.Forms.ToolStripButton();
-            this.btnDeleteCurrent = new System.Windows.Forms.ToolStripButton();
             this.dgvTestsView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +40,9 @@
             this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new PowerLearnChecker.Controls.DateTimeColumn();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tsbDownload = new System.Windows.Forms.ToolStripButton();
+            this.btnDeleteCurrent = new System.Windows.Forms.ToolStripButton();
+            this.btnDeleteTest = new System.Windows.Forms.ToolStripButton();
             this.toolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -54,46 +55,26 @@
             this.tslId,
             this.tstbId,
             this.tsbDownload,
-            this.btnDeleteCurrent});
+            this.btnDeleteCurrent,
+            this.btnDeleteTest});
             this.toolBar.Location = new System.Drawing.Point(0, 0);
             this.toolBar.Name = "toolBar";
-            this.toolBar.Size = new System.Drawing.Size(832, 27);
+            this.toolBar.Size = new System.Drawing.Size(832, 31);
             this.toolBar.TabIndex = 0;
             this.toolBar.Text = "toolStrip1";
             // 
             // tslId
             // 
             this.tslId.Name = "tslId";
-            this.tslId.Size = new System.Drawing.Size(22, 24);
+            this.tslId.Size = new System.Drawing.Size(22, 28);
             this.tslId.Text = "Id";
             // 
             // tstbId
             // 
             this.tstbId.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tstbId.Name = "tstbId";
-            this.tstbId.Size = new System.Drawing.Size(100, 27);
+            this.tstbId.Size = new System.Drawing.Size(100, 31);
             this.tstbId.TextChanged += new System.EventHandler(this.tstbId_TextChanged);
-            // 
-            // tsbDownload
-            // 
-            this.tsbDownload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbDownload.Enabled = false;
-            this.tsbDownload.Image = global::PowerLearnChecker.Properties.Resources.Search;
-            this.tsbDownload.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDownload.Name = "tsbDownload";
-            this.tsbDownload.Size = new System.Drawing.Size(29, 24);
-            this.tsbDownload.Text = "Search...";
-            this.tsbDownload.Click += new System.EventHandler(this.tsbDownload_Click);
-            // 
-            // btnDeleteCurrent
-            // 
-            this.btnDeleteCurrent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnDeleteCurrent.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteCurrent.Image")));
-            this.btnDeleteCurrent.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDeleteCurrent.Name = "btnDeleteCurrent";
-            this.btnDeleteCurrent.Size = new System.Drawing.Size(29, 24);
-            this.btnDeleteCurrent.Text = "Delete Current Test";
-            this.btnDeleteCurrent.Click += new System.EventHandler(this.btnDeleteCurrent_Click);
             // 
             // dgvTestsView
             // 
@@ -110,11 +91,11 @@
             this.dateDataGridViewTextBoxColumn});
             this.dgvTestsView.DataSource = this.bindingSource;
             this.dgvTestsView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTestsView.Location = new System.Drawing.Point(0, 27);
+            this.dgvTestsView.Location = new System.Drawing.Point(0, 31);
             this.dgvTestsView.Name = "dgvTestsView";
             this.dgvTestsView.RowHeadersWidth = 51;
             this.dgvTestsView.RowTemplate.Height = 24;
-            this.dgvTestsView.Size = new System.Drawing.Size(832, 433);
+            this.dgvTestsView.Size = new System.Drawing.Size(832, 429);
             this.dgvTestsView.TabIndex = 1;
             // 
             // idDataGridViewTextBoxColumn
@@ -158,6 +139,39 @@
             this.bindingSource.DataMember = "Test";
             this.bindingSource.DataSource = typeof(PowerLearnChecker.Tests);
             // 
+            // tsbDownload
+            // 
+            this.tsbDownload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDownload.Enabled = false;
+            this.tsbDownload.Image = global::PowerLearnChecker.Properties.Resources.Search;
+            this.tsbDownload.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDownload.Name = "tsbDownload";
+            this.tsbDownload.Size = new System.Drawing.Size(29, 28);
+            this.tsbDownload.Text = "Search...";
+            this.tsbDownload.Click += new System.EventHandler(this.tsbDownload_Click);
+            // 
+            // btnDeleteCurrent
+            // 
+            this.btnDeleteCurrent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDeleteCurrent.Enabled = false;
+            this.btnDeleteCurrent.Image = global::PowerLearnChecker.Properties.Resources.Delete_Current;
+            this.btnDeleteCurrent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDeleteCurrent.Name = "btnDeleteCurrent";
+            this.btnDeleteCurrent.Size = new System.Drawing.Size(29, 28);
+            this.btnDeleteCurrent.Text = "Delete Current Test";
+            this.btnDeleteCurrent.Click += new System.EventHandler(this.btnDeleteCurrent_Click);
+            // 
+            // btnDeleteTest
+            // 
+            this.btnDeleteTest.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDeleteTest.Enabled = false;
+            this.btnDeleteTest.Image = global::PowerLearnChecker.Properties.Resources.Delete_Test;
+            this.btnDeleteTest.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDeleteTest.Name = "btnDeleteTest";
+            this.btnDeleteTest.Size = new System.Drawing.Size(29, 28);
+            this.btnDeleteTest.Text = "Delete Test";
+            this.btnDeleteTest.Click += new System.EventHandler(this.btnDeleteTest_ClickAsync);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -192,6 +206,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
         private Controls.DateTimeColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton btnDeleteCurrent;
+        private System.Windows.Forms.ToolStripButton btnDeleteTest;
     }
 }
 

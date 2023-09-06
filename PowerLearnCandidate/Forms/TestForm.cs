@@ -12,6 +12,7 @@ namespace PowerLearnCandidate
         private Question question;
         private Test test;
         private int id = -1;
+        private bool applied = false;
         public TestForm(Test test)
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace PowerLearnCandidate
             //id=-1
             NextQuestion();
             //id=0
-            
+
             base.OnLoad(e);
         }
 
@@ -93,7 +94,16 @@ namespace PowerLearnCandidate
 
         private void multipleAnswersControl_Applied(object sender, EventArgs e)
         {
-            NextQuestion();
+            if (!applied)
+            {
+                multipleAnswersControl.ShowAnswers();
+                applied = true;
+            }
+            else
+            {
+                NextQuestion();
+                applied = false;
+            }
         }
 
         private void multipleAnswersControl_MouseMove(object sender, MouseEventArgs e)

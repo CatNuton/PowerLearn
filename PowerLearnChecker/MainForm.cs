@@ -55,5 +55,12 @@ namespace PowerLearnChecker
             var test = (Test)bindingSource.Current;
             await fs.SendVerb("verb", "deleteCompleted", "id", test.Id.ToString(), "name", test.Name);
         }
+
+        private async void btnDeleteTest_ClickAsync(object sender, EventArgs e)
+        {
+            var fs = new FileServer("130.61.26.111", "3001");
+            var test = (Test)bindingSource.Current;
+            await fs.SendVerb("verb", "deleteTest", "id", test.Id.ToString());
+        }
     }
 }

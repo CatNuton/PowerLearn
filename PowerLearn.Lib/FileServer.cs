@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.CodeDom;
 
 namespace PowerLearn
 {
@@ -32,7 +33,8 @@ namespace PowerLearn
                 }
                 catch (HttpRequestException ex)
                 {
-                    throw new HttpRequestException($"{ex.Message}\nYou alredy solve this test!");
+                    throw new HttpRequestException($"{ex.Message}\nServer cannot load test! Please, check code or write" +
+                        $"an email to operationsoftstudio@gmail.com");
                 }
                 catch (Exception)
                 {
@@ -81,7 +83,7 @@ namespace PowerLearn
             for (int i = 0; i < keyValues.Length / 2; i++)
             {
                 var j = i * 2 % keyValues.Length;
-                kv.Add($"{keyValues[j]}={keyValues[j+1]}");
+                kv.Add($"{keyValues[j]}={keyValues[j + 1]}");
             }
             using (var content = new StringContent(string.Join("&", kv),
                 Encoding.UTF8,
