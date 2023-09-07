@@ -41,9 +41,9 @@
             this.aflpAccountSettings.AutoScroll = true;
             this.aflpAccountSettings.AutoSize = true;
             this.aflpAccountSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.aflpAccountSettings.Controls.Add(this.tbPatronym);
-            this.aflpAccountSettings.Controls.Add(this.tbFirstName);
             this.aflpAccountSettings.Controls.Add(this.tbLastName);
+            this.aflpAccountSettings.Controls.Add(this.tbFirstName);
+            this.aflpAccountSettings.Controls.Add(this.tbPatronym);
             this.aflpAccountSettings.Controls.Add(this.btnSaveAuthor);
             this.aflpAccountSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aflpAccountSettings.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -63,7 +63,7 @@
             this.tbPatronym.Font = new System.Drawing.Font("Arial", 11F);
             this.tbPatronym.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.tbPatronym.ForeColor = System.Drawing.Color.Black;
-            this.tbPatronym.Location = new System.Drawing.Point(8, 13);
+            this.tbPatronym.Location = new System.Drawing.Point(8, 105);
             this.tbPatronym.Name = "tbPatronym";
             this.tbPatronym.SelectionStart = 0;
             this.tbPatronym.Size = new System.Drawing.Size(239, 40);
@@ -101,7 +101,7 @@
             this.tbLastName.Font = new System.Drawing.Font("Arial", 11F);
             this.tbLastName.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.tbLastName.ForeColor = System.Drawing.Color.Black;
-            this.tbLastName.Location = new System.Drawing.Point(8, 105);
+            this.tbLastName.Location = new System.Drawing.Point(8, 13);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.SelectionStart = 0;
             this.tbLastName.Size = new System.Drawing.Size(239, 40);

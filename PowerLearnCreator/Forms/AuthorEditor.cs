@@ -72,7 +72,9 @@ namespace PowerLearnCreator.Forms
 
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
-            btnSaveAuthor.Enabled = !string.IsNullOrWhiteSpace(tbFirstName.Text);
+            btnSaveAuthor.Enabled = !string.IsNullOrWhiteSpace(tbFirstName.Text) |
+                !string.IsNullOrWhiteSpace(tbLastName.Text) |
+                !string.IsNullOrWhiteSpace(tbPatronym.Text);
         }
 
         private void AuthorEditor_Deactivate(object sender, EventArgs e)
