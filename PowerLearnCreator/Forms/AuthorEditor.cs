@@ -70,7 +70,7 @@ namespace PowerLearnCreator.Forms
             ChangesSave?.Invoke(this, EventArgs.Empty);
         }
 
-        private void tbFirstName_TextChanged(object sender, EventArgs e)
+        private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
             btnSaveAuthor.Enabled = !string.IsNullOrWhiteSpace(tbFirstName.Text);
         }

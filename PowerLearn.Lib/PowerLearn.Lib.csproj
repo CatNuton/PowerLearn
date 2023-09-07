@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animator\Animation.cs" />
+    <Compile Include="Animator\Animator.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="Candidate.cs" />
     <Compile Include="FileServer.cs" />

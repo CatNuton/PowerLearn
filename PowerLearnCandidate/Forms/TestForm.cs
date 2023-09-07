@@ -17,7 +17,7 @@ namespace PowerLearnCandidate
         {
             InitializeComponent();
             this.test = test;
-            navigationControl1.Build(test);
+            navigationControl.Build(test);
 #if DEBUG
             FormBorderStyle = FormBorderStyle.Sizable;
 #endif
@@ -58,12 +58,12 @@ namespace PowerLearnCandidate
             if (forward)
             {
                 id++;
-                navigationControl1.Forward();
+                navigationControl.Forward();
             }
             else
             {
                 id--;
-                navigationControl1.Back();
+                navigationControl.Back();
             }
             if (id >= test.Questions.Count)
             {

@@ -46,8 +46,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PowerLearnCreator, Version=1.0.1.25106, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +70,9 @@
     </Compile>
     <Compile Include="Controls\AnswerEventArgs.cs" />
     <Compile Include="Controls\EnumSplitButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\GoogleTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\QuestionEventArgs.cs" />
