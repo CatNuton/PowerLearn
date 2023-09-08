@@ -11,6 +11,8 @@ namespace PowerLearn
 {
     public class FileServer
     {
+        public static FileServer Instance { get; set; }
+
         private readonly string address;
         private readonly string port;
 

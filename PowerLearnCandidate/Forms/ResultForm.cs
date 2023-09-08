@@ -38,14 +38,13 @@ namespace PowerLearnCandidate.Forms
 
         private async void btnUploadResult_Click(object sender, System.EventArgs e)
         {
-            var fs = new FileServer("130.61.26.111", "3001");
             var filePath = Path.GetTempFileName();
             using (var sw = new StreamWriter(filePath))
             {
                 var s = new XmlSerializer(typeof(TestProxy));
                 s.Serialize(sw, new TestProxy(test));
             }
-            await fs.Upload(filePath, "verb", "uploadCompleted",
+            await FileServer.Instance.Upload(filePath, "verb", "uploadCompleted",
                 "id", test.Id.ToString(),
                 "name", test.Candidate.Name.ToString(),
                 "max", test.MaxScore.ToString(),

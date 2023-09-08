@@ -24,11 +24,10 @@ namespace PowerLearnChecker
 
         private async void tsbDownload_Click(object sender, EventArgs e)
         {
-            var fs = new FileServer("130.61.26.111", "3001");
             byte[] r;
             try
             {
-                r = await fs.Download("verb", "getList", "id", tstbId.Text);
+                r = await FileServer.Instance.Download("verb", "getList", "id", tstbId.Text);
                 btnDeleteCurrent.Enabled = true;
                 btnDeleteTest.Enabled = true;
             }
@@ -53,16 +52,14 @@ namespace PowerLearnChecker
 
         private async void btnDeleteCurrent_Click(object sender, EventArgs e)
         {
-            var fs = new FileServer("130.61.26.111", "3001");
             var test = (Test)bindingSource.Current;
-            await fs.SendVerb("verb", "deleteCompleted", "id", test.Id.ToString(), "name", test.Name);
+            await FileServer.Instance.SendVerb("verb", "deleteCompleted", "id", test.Id.ToString(), "name", test.Name);
         }
 
         private async void btnDeleteTest_ClickAsync(object sender, EventArgs e)
         {
-            var fs = new FileServer("130.61.26.111", "3001");
             var test = (Test)bindingSource.Current;
-            await fs.SendVerb("verb", "deleteTest", "id", tstbId.Text);
+            await FileServer.Instance.SendVerb("verb", "deleteTest", "id", tstbId.Text);
         }
     }
 }

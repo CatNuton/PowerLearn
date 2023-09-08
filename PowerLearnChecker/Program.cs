@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PowerLearn;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace PowerLearnChecker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            FileServer.Instance = new FileServer("130.61.26.111", "3001");
             Application.Run(new MainForm());
         }
     }

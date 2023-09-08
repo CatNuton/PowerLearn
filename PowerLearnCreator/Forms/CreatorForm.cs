@@ -258,11 +258,10 @@ namespace PowerLearnCreator
 
         private async void btnUpload_Click(object sender, EventArgs e)
         {
-            var fs = new FileServer("130.61.26.111", "3001");
             try
             {
                 btnUpload.Enabled = false;
-                var r = await fs.Upload(savedFilePath, "verb", "upload", "id", currentTest.Id.ToString());
+                var r = await FileServer.Instance.Upload(savedFilePath, "verb", "upload", "id", currentTest.Id.ToString());
                 var mcb = new MessageCopyBox();
                 mcb.ShowMessage(r, currentTest.Id.ToString(), "id");
 
