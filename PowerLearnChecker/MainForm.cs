@@ -62,7 +62,7 @@ namespace PowerLearnChecker
         {
             var fs = new FileServer("130.61.26.111", "3001");
             var test = (Test)bindingSource.Current;
-            await fs.SendVerb("verb", "deleteTest", "id", test.Id.ToString());
+            await fs.SendVerb("verb", "deleteTest", "id", tstbId.Text);
         }
     }
 }

@@ -59,12 +59,12 @@ namespace PowerLearnCreator
             currentTest.Name = "Unnamed";
             currentTest.Description = "";
             currentTest.Type = "Unknown";
-            UpdateForm();
             UpdateInterface();
         }
 
         private void UpdateInterface()
         {
+            Text = $"Power Learn Creator - {currentTest.Name}";
             adjflQuestionList.Build(currentTest);
             btnSave.Enabled = currentTest.Author != null;
             btnSaveAs.Enabled = currentTest.Author != null;
@@ -73,6 +73,7 @@ namespace PowerLearnCreator
             btnTestOptions.Enabled = true;
             btnUpload.Enabled = !string.IsNullOrEmpty(savedFilePath);
             btnUser.Enabled = true;
+            UpdateQuestionControl();
             if (currentTest.Author != null)
             {
                 userSettings.FirstName = currentTest.Author.Name.FirstName;
@@ -145,7 +146,6 @@ namespace PowerLearnCreator
                 currentTest = sres.Test;
                 savedFilePath = openFileDialog.FileName;
                 UpdateInterface();
-                UpdateForm();
             }
         }
 
@@ -172,17 +172,12 @@ namespace PowerLearnCreator
         private void btnTestOptions_Click(object sender, EventArgs e)
         {
             var etp = new TestPropertiesEditor(currentTest);
-            etp.ChangesApplied += (_, __) => UpdateForm();
+            etp.ChangesApplied += (_, __) => UpdateInterface();
             var dr = etp.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                UpdateForm();
+                UpdateInterface();
             }
-        }
-
-        private void UpdateForm()
-        {
-            Text = $"Power Learn Creator - {currentTest.Name}";
         }
 
         private void adjflQuestionList_ControlAdded(object sender, ControlEventArgs e)
@@ -280,6 +275,25 @@ namespace PowerLearnCreator
             finally
             {
                 btnUpload.Enabled = true;
+            }
+        }
+
+        public void UpdateQuestionControl()
+        {
+            if (adjflQuestionList.Controls.Count != 0 && adjflQuestionList.ActiveQuestion != null)
+            {
+                QuestionControlPanel.Build(adjflQuestionList.ActiveQuestion);
+            }
+            else if (adjflQuestionList.Controls.Count != 0 && adjflQuestionList.ActiveQuestion == null)
+            {
+                adjflQuestionList.ActiveQuestion = currentTest.Questions[0];
+                adjflQuestionList.SetVisualStyle(adjflQuestionList.ActiveQuestion,
+                    (SelectableButton)adjflQuestionList.Controls[0]);
+                QuestionControlPanel.Build(adjflQuestionList.ActiveQuestion);
+            }
+            else if (adjflQuestionList.Controls.Count == 0)
+            {
+                QuestionControlPanel.Visible = false;
             }
         }
     }

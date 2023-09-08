@@ -37,6 +37,7 @@
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.btnSaveAs = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCreateQuestion = new PowerLearnCreator.Controls.QuestionTypeSplitButton();
             this.btnTest = new System.Windows.Forms.ToolStripButton();
             this.btnTestOptions = new System.Windows.Forms.ToolStripButton();
             this.btnUser = new System.Windows.Forms.ToolStripButton();
@@ -44,7 +45,6 @@
             this.spltTestCreator = new System.Windows.Forms.SplitContainer();
             this.adjflQuestionList = new PowerLearnCreator.QuestionsFlowLayoutPanel();
             this.QuestionControlPanel = new PowerLearnCreator.Controls.QuestionControl();
-            this.btnCreateQuestion = new PowerLearnCreator.Controls.QuestionTypeSplitButton();
             this.ToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spltTestCreator)).BeginInit();
             this.spltTestCreator.Panel1.SuspendLayout();
@@ -76,7 +76,7 @@
             this.btnUpload});
             this.ToolStrip.Location = new System.Drawing.Point(0, 0);
             this.ToolStrip.Name = "ToolStrip";
-            this.ToolStrip.Size = new System.Drawing.Size(1052, 31);
+            this.ToolStrip.Size = new System.Drawing.Size(1052, 27);
             this.ToolStrip.TabIndex = 1;
             this.ToolStrip.Text = "toolStrip1";
             // 
@@ -86,7 +86,7 @@
             this.btnNewTest.Image = global::PowerLearnCreator.Properties.Resources.New;
             this.btnNewTest.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNewTest.Name = "btnNewTest";
-            this.btnNewTest.Size = new System.Drawing.Size(29, 28);
+            this.btnNewTest.Size = new System.Drawing.Size(29, 24);
             this.btnNewTest.Text = "New";
             this.btnNewTest.ToolTipText = "New ";
             this.btnNewTest.Click += new System.EventHandler(this.btnNewTest_Click);
@@ -97,7 +97,7 @@
             this.btnOpenTest.Image = global::PowerLearnCreator.Properties.Resources.Open;
             this.btnOpenTest.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnOpenTest.Name = "btnOpenTest";
-            this.btnOpenTest.Size = new System.Drawing.Size(29, 28);
+            this.btnOpenTest.Size = new System.Drawing.Size(29, 24);
             this.btnOpenTest.Text = "Open";
             this.btnOpenTest.Click += new System.EventHandler(this.btnOpenTest_Click);
             // 
@@ -108,7 +108,7 @@
             this.btnSave.Image = global::PowerLearnCreator.Properties.Resources.Save;
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(29, 28);
+            this.btnSave.Size = new System.Drawing.Size(29, 24);
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSaveTest_Click);
             // 
@@ -119,14 +119,25 @@
             this.btnSaveAs.Image = global::PowerLearnCreator.Properties.Resources.Save_as;
             this.btnSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSaveAs.Name = "btnSaveAs";
-            this.btnSaveAs.Size = new System.Drawing.Size(29, 28);
+            this.btnSaveAs.Size = new System.Drawing.Size(29, 24);
             this.btnSaveAs.Text = "Save as...";
             this.btnSaveAs.Click += new System.EventHandler(this.btnSaveTestAs_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // btnCreateQuestion
+            // 
+            this.btnCreateQuestion.Enabled = false;
+            this.btnCreateQuestion.Image = global::PowerLearnCreator.Properties.Resources.Add;
+            this.btnCreateQuestion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCreateQuestion.Name = "btnCreateQuestion";
+            this.btnCreateQuestion.SelectedValue = PowerLearn.QuestionType.MultipleAnswers;
+            this.btnCreateQuestion.Size = new System.Drawing.Size(139, 24);
+            this.btnCreateQuestion.Text = "Add Question";
+            this.btnCreateQuestion.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.btnCreateQuestion_DropDownItemClicked);
             // 
             // btnTest
             // 
@@ -135,7 +146,7 @@
             this.btnTest.Image = global::PowerLearnCreator.Properties.Resources.Test;
             this.btnTest.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(29, 28);
+            this.btnTest.Size = new System.Drawing.Size(29, 24);
             this.btnTest.Text = "Enter your test";
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
@@ -146,7 +157,7 @@
             this.btnTestOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTestOptions.Image")));
             this.btnTestOptions.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTestOptions.Name = "btnTestOptions";
-            this.btnTestOptions.Size = new System.Drawing.Size(29, 28);
+            this.btnTestOptions.Size = new System.Drawing.Size(29, 24);
             this.btnTestOptions.Text = "Test Options";
             this.btnTestOptions.Click += new System.EventHandler(this.btnTestOptions_Click);
             // 
@@ -158,7 +169,7 @@
             this.btnUser.Image = global::PowerLearnCreator.Properties.Resources.User;
             this.btnUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(29, 28);
+            this.btnUser.Size = new System.Drawing.Size(29, 24);
             this.btnUser.Text = "User";
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
@@ -169,7 +180,7 @@
             this.btnUpload.Image = global::PowerLearnCreator.Properties.Resources.Upload;
             this.btnUpload.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(29, 28);
+            this.btnUpload.Size = new System.Drawing.Size(29, 24);
             this.btnUpload.Text = "Upload";
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
@@ -179,7 +190,7 @@
             this.spltTestCreator.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.spltTestCreator.ForeColor = System.Drawing.SystemColors.ControlText;
             this.spltTestCreator.IsSplitterFixed = true;
-            this.spltTestCreator.Location = new System.Drawing.Point(0, 31);
+            this.spltTestCreator.Location = new System.Drawing.Point(0, 27);
             this.spltTestCreator.Margin = new System.Windows.Forms.Padding(4);
             this.spltTestCreator.Name = "spltTestCreator";
             // 
@@ -192,7 +203,7 @@
             // 
             this.spltTestCreator.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.spltTestCreator.Panel2.Controls.Add(this.QuestionControlPanel);
-            this.spltTestCreator.Size = new System.Drawing.Size(1052, 429);
+            this.spltTestCreator.Size = new System.Drawing.Size(1052, 433);
             this.spltTestCreator.SplitterDistance = 100;
             this.spltTestCreator.SplitterWidth = 1;
             this.spltTestCreator.TabIndex = 0;
@@ -207,7 +218,7 @@
             this.adjflQuestionList.Location = new System.Drawing.Point(0, 0);
             this.adjflQuestionList.Margin = new System.Windows.Forms.Padding(4);
             this.adjflQuestionList.Name = "adjflQuestionList";
-            this.adjflQuestionList.Size = new System.Drawing.Size(100, 429);
+            this.adjflQuestionList.Size = new System.Drawing.Size(100, 433);
             this.adjflQuestionList.TabIndex = 3;
             this.adjflQuestionList.WrapContents = false;
             this.adjflQuestionList.ActiveQuestionChanged += new System.EventHandler<PowerLearnCreator.Controls.QuestionEventArgs>(this.adjustableFlowLayoutPanel1_ActiveQuestionChanged);
@@ -223,24 +234,13 @@
             this.QuestionControlPanel.Margin = new System.Windows.Forms.Padding(5);
             this.QuestionControlPanel.Name = "QuestionControlPanel";
             this.QuestionControlPanel.QuestionText = null;
-            this.QuestionControlPanel.Size = new System.Drawing.Size(951, 429);
+            this.QuestionControlPanel.Size = new System.Drawing.Size(951, 433);
             this.QuestionControlPanel.TabIndex = 2;
             this.QuestionControlPanel.Visible = false;
             this.QuestionControlPanel.AddAnswerClick += new System.EventHandler(this.qstcntrlQuestionRedactor_AddAnswerClick);
             this.QuestionControlPanel.DeleteAnswerClick += new System.EventHandler<PowerLearnCreator.Controls.AnswerEventArgs>(this.qstcntrlQuestionRedactor_DeleteAnswerClick);
             this.QuestionControlPanel.AddImageClick += new System.EventHandler<PowerLearnCreator.Controls.AddImageEventArgs>(this.qstcntrlQuestionRedactor_AddImageClick);
             this.QuestionControlPanel.DeleteImageClick += new System.EventHandler(this.qstcntrlQuestionRedactor_DeleteImageClick);
-            // 
-            // btnCreateQuestion
-            // 
-            this.btnCreateQuestion.Enabled = false;
-            this.btnCreateQuestion.Image = global::PowerLearnCreator.Properties.Resources.Add;
-            this.btnCreateQuestion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCreateQuestion.Name = "btnCreateQuestion";
-            this.btnCreateQuestion.SelectedValue = PowerLearn.QuestionType.MultipleAnswers;
-            this.btnCreateQuestion.Size = new System.Drawing.Size(139, 28);
-            this.btnCreateQuestion.Text = "Add Question";
-            this.btnCreateQuestion.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.btnCreateQuestion_DropDownItemClicked);
             // 
             // CreatorForm
             // 
