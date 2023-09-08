@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.aflpAccountSettings = new PowerLearnCreator.Controls.AdjustableFlowLayoutPanel();
-            this.tbPatronym = new PowerLearnCandidate.Controls.GoogleTextBox();
-            this.tbFirstName = new PowerLearnCandidate.Controls.GoogleTextBox();
-            this.tbLastName = new PowerLearnCandidate.Controls.GoogleTextBox();
+            this.tbPatronym = new Controls.GoogleTextBox();
+            this.tbFirstName = new Controls.GoogleTextBox();
+            this.tbLastName = new Controls.GoogleTextBox();
             this.btnSaveAuthor = new System.Windows.Forms.Button();
             this.aflpAccountSettings.SuspendLayout();
             this.SuspendLayout();
@@ -144,8 +144,8 @@
 
         private Controls.AdjustableFlowLayoutPanel aflpAccountSettings;
         private System.Windows.Forms.Button btnSaveAuthor;
-        private PowerLearnCandidate.Controls.GoogleTextBox tbPatronym;
-        private PowerLearnCandidate.Controls.GoogleTextBox tbFirstName;
-        private PowerLearnCandidate.Controls.GoogleTextBox tbLastName;
+        private Controls.GoogleTextBox tbPatronym;
+        private Controls.GoogleTextBox tbFirstName;
+        private Controls.GoogleTextBox tbLastName;
     }
 }
