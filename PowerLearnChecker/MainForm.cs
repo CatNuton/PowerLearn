@@ -24,6 +24,11 @@ namespace PowerLearnChecker
 
         private async void tsbDownload_Click(object sender, EventArgs e)
         {
+            await DownloadTests();
+        }
+
+        private async Task DownloadTests()
+        {
             byte[] r;
             try
             {
@@ -54,12 +59,15 @@ namespace PowerLearnChecker
         {
             var test = (Test)bindingSource.Current;
             await FileServer.Instance.SendVerb("verb", "deleteCompleted", "id", test.Id.ToString(), "name", test.Name);
+            await DownloadTests();
         }
 
         private async void btnDeleteTest_ClickAsync(object sender, EventArgs e)
         {
             var test = (Test)bindingSource.Current;
             await FileServer.Instance.SendVerb("verb", "deleteTest", "id", tstbId.Text);
+            bindingSource.DataSource = null;
+            tstbId.Clear();
         }
     }
 }
