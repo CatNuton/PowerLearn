@@ -48,8 +48,17 @@ namespace PowerLearnCandidate
         private void singleAnswerControl1_Applied(object sender, StringEventArgs e)
         {
             //id=2
-            question.Answers[0].EnteredAnswer = e.Value;
-            NextQuestion();
+            if (!applied)
+            {
+                singleAnswerControl.ShowAnswers();
+                applied = true;
+            }
+            else
+            {
+                question.Answers[0].EnteredAnswer = e.Value;
+                NextQuestion();
+                applied = false;
+            }
             //id=3
         }
 

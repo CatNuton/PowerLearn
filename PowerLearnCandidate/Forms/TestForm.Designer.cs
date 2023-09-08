@@ -33,8 +33,8 @@ namespace PowerLearnCandidate
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestForm));
             this.btnBack = new System.Windows.Forms.Button();
             this.btnForward = new System.Windows.Forms.Button();
-            this.singleAnswerControl = new PowerLearnCandidate.Controls.SingleAnswerControl();
             this.multipleAnswersControl = new PowerLearnCandidate.Controls.MultipleAnswersControl();
+            this.singleAnswerControl = new PowerLearnCandidate.Controls.SingleAnswerControl();
             this.navigationControl = new PowerLearnCandidate.NavigationControl();
             this.SuspendLayout();
             // 
@@ -64,18 +64,6 @@ namespace PowerLearnCandidate
             this.btnForward.Visible = false;
             this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
             // 
-            // singleAnswerControl
-            // 
-            this.singleAnswerControl.BackColor = System.Drawing.Color.White;
-            this.singleAnswerControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.singleAnswerControl.Location = new System.Drawing.Point(0, 62);
-            this.singleAnswerControl.Margin = new System.Windows.Forms.Padding(0);
-            this.singleAnswerControl.MinimumSize = new System.Drawing.Size(671, 326);
-            this.singleAnswerControl.Name = "singleAnswerControl";
-            this.singleAnswerControl.Size = new System.Drawing.Size(1068, 492);
-            this.singleAnswerControl.TabIndex = 5;
-            this.singleAnswerControl.Applied += new System.EventHandler<PowerLearnCandidate.Controls.StringEventArgs>(this.singleAnswerControl1_Applied);
-            // 
             // multipleAnswersControl
             // 
             this.multipleAnswersControl.BackColor = System.Drawing.Color.Black;
@@ -89,6 +77,18 @@ namespace PowerLearnCandidate
             this.multipleAnswersControl.Visible = false;
             this.multipleAnswersControl.Applied += new System.EventHandler(this.multipleAnswersControl_Applied);
             this.multipleAnswersControl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.multipleAnswersControl_MouseMove);
+            // 
+            // singleAnswerControl
+            // 
+            this.singleAnswerControl.BackColor = System.Drawing.Color.White;
+            this.singleAnswerControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.singleAnswerControl.Location = new System.Drawing.Point(0, 62);
+            this.singleAnswerControl.Margin = new System.Windows.Forms.Padding(0);
+            this.singleAnswerControl.MinimumSize = new System.Drawing.Size(671, 326);
+            this.singleAnswerControl.Name = "singleAnswerControl";
+            this.singleAnswerControl.Size = new System.Drawing.Size(1068, 492);
+            this.singleAnswerControl.TabIndex = 5;
+            this.singleAnswerControl.Applied += new System.EventHandler<PowerLearnCandidate.Controls.StringEventArgs>(this.singleAnswerControl1_Applied);
             // 
             // navigationControl
             // 
@@ -106,9 +106,9 @@ namespace PowerLearnCandidate
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1068, 554);
             this.Controls.Add(this.singleAnswerControl);
+            this.Controls.Add(this.multipleAnswersControl);
             this.Controls.Add(this.btnForward);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.multipleAnswersControl);
             this.Controls.Add(this.navigationControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -99,7 +99,7 @@
             this.btnApply.Rounding = 80;
             this.btnApply.Size = new System.Drawing.Size(253, 41);
             this.btnApply.TabIndex = 7;
-            this.btnApply.Text = "Apply";
+            this.btnApply.Text = "Check";
             this.btnApply.UseVisualStyleBackColor = false;
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 

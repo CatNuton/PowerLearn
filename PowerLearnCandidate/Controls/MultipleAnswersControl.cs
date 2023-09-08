@@ -86,6 +86,7 @@ namespace PowerLearnCandidate.Controls
         public void ShowAnswers()
         {
             var c = 0;
+            btnApply.Text = "Apply";
             AnswerVariant variant;
             foreach (var answer in question.Answers)
             {
