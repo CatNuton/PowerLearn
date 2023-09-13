@@ -73,6 +73,7 @@ namespace PowerLearnCreator
             btnTestOptions.Enabled = true;
             btnUpload.Enabled = !string.IsNullOrEmpty(savedFilePath);
             btnUser.Enabled = true;
+            btnOpenChecker.Enabled = currentTest.Uploaded;
             UpdateQuestionControl();
             if (currentTest.Author != null)
             {
@@ -264,11 +265,13 @@ namespace PowerLearnCreator
                 var r = await FileServer.Instance.Upload(savedFilePath, "verb", "upload", "id", currentTest.Id.ToString());
                 var mcb = new MessageCopyBox();
                 mcb.ShowMessage(r, currentTest.Id.ToString(), "id");
-
+                currentTest.Uploaded = true;
+                btnSaveTest_Click(this, e);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex}\nProgram cannot upload this file on server!");
+                currentTest.Uploaded = false;
                 return;
             }
             finally
@@ -283,17 +286,19 @@ namespace PowerLearnCreator
             {
                 QuestionControlPanel.Build(adjflQuestionList.ActiveQuestion);
             }
-            else if (adjflQuestionList.Controls.Count != 0 && adjflQuestionList.ActiveQuestion == null)
+            else if (adjflQuestionList.Controls.Count > 0 && adjflQuestionList.ActiveQuestion == null)
             {
-                adjflQuestionList.ActiveQuestion = currentTest.Questions[0];
-                adjflQuestionList.SetVisualStyle(adjflQuestionList.ActiveQuestion,
-                    (SelectableButton)adjflQuestionList.Controls[0]);
-                QuestionControlPanel.Build(adjflQuestionList.ActiveQuestion);
+                QuestionControlPanel.Visible = false;
             }
             else if (adjflQuestionList.Controls.Count == 0)
             {
                 QuestionControlPanel.Visible = false;
             }
+        }
+
+        private void tsbOpenChecker_Click(object sender, EventArgs e)
+        {
+            Process.Start("PowerLearnChecker", currentTest.Id.ToString());
         }
     }
 }

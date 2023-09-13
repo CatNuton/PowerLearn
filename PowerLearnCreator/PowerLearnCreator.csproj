@@ -195,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CreatorFormLogo.ico" />
+    <None Include="Resources\Check.png" />
     <None Include="Images\Upload.png" />
     <None Include="Images\User.png" />
     <None Include="Images\Close.png" />
