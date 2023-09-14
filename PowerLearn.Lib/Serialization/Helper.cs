@@ -11,16 +11,16 @@ namespace PowerLearn.Serialization
     public static class Helper
     {
 
-        private static readonly Dictionary<string, Image> tempFiles = new Dictionary<string, Image>();
+        private static readonly Dictionary<Image, MemoryStream> images = new Dictionary<Image, MemoryStream>();
 
         public static void Clean()
         {
-            foreach (var item in tempFiles.Where(item => File.Exists(item.Key)))
+            foreach (var item in images)
             {
                 try
                 {
                     item.Value.Dispose();
-                    File.Delete(item.Key);
+                    item.Key.Dispose();
                 }
                 catch (Exception)
                 {
@@ -58,14 +58,10 @@ namespace PowerLearn.Serialization
         public static Image ToImage(this string base64)
         {
             var bytes = Convert.FromBase64String(base64);
-            using (var ms = new MemoryStream(bytes))
-            {
-                var tmp = Path.GetTempFileName();
-                Image.FromStream(ms).Save(tmp);
-                var result = Image.FromFile(tmp);
-                tempFiles.Add(tmp, result);
-                return result;
-            }
+            var ms = new MemoryStream(bytes);
+            var result = Image.FromStream(ms);
+            images.Add(result, ms);
+            return result;
         }
     }
 }
