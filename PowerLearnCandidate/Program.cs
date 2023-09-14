@@ -17,6 +17,7 @@ namespace PowerLearnCandidate
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.ApplicationExit += Application_ApplicationExit;
             if (args.Length == 0)
             {
                 var edf = new EnterDataForm();
@@ -34,6 +35,11 @@ namespace PowerLearnCandidate
                 test.Candidate = test.Author;
                 Application.Run(new TestForm(test));
             }
+        }
+
+        private static void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            Helper.Clean();
         }
 
         private static Test GetTestFromFile(string path)
