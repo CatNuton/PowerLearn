@@ -26,11 +26,14 @@ namespace PowerLearn
         public int Id { get; set; }
         [Browsable(false)]
         public Person Candidate { get; set; }
+        [Browsable(false)]
+        public bool Uploaded { get; set; }
 
         public Test()
         {
             var guid = Guid.NewGuid();
             Id = guid.GetHashCode();
+            Uploaded = false;
         }
 
         private int GetMaxScore()

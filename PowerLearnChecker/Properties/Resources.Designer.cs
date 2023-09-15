@@ -63,9 +63,9 @@ namespace PowerLearnChecker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap check_mark {
+        internal static System.Drawing.Bitmap Delete_Current {
             get {
-                object obj = ResourceManager.GetObject("check-mark", resourceCulture);
+                object obj = ResourceManager.GetObject("Delete Current", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,20 +73,10 @@ namespace PowerLearnChecker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Downlaod {
+        internal static System.Drawing.Bitmap Delete_Test {
             get {
-                object obj = ResourceManager.GetObject("Downlaod", resourceCulture);
+                object obj = ResourceManager.GetObject("Delete Test", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon Logo {
-            get {
-                object obj = ResourceManager.GetObject("Logo", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -96,16 +86,6 @@ namespace PowerLearnChecker.Properties {
         internal static System.Drawing.Bitmap Search {
             get {
                 object obj = ResourceManager.GetObject("Search", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap User {
-            get {
-                object obj = ResourceManager.GetObject("User", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

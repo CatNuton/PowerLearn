@@ -13,6 +13,10 @@ namespace PowerLearnCandidate.Controls
 {
     public partial class AnswerVariant : UserControl
     {
+        public Color ButtonBackColor { get => btnSelect.BackColor; set => btnSelect.BackColor = value; }
+        public Color ButtonForeColor { get => btnSelect.ForeColor; set => btnSelect.ForeColor = value; }
+        public Color ButtonHoverColor1 { get => btnSelect.HoverColor1; set => btnSelect.HoverColor1 = value; }
+        public Color ButtonHoverColor2 { get => btnSelect.HoverColor2; set => btnSelect.HoverColor2 = value; }
         private Answer answer;
         public AnswerVariant()
         {

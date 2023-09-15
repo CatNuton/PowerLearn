@@ -12,11 +12,12 @@ namespace PowerLearnCandidate
         private Question question;
         private Test test;
         private int id = -1;
+        private bool applied = false;
         public TestForm(Test test)
         {
             InitializeComponent();
             this.test = test;
-            navigationControl1.Build(test);
+            navigationControl.Build(test);
 #if DEBUG
             FormBorderStyle = FormBorderStyle.Sizable;
 #endif
@@ -32,7 +33,7 @@ namespace PowerLearnCandidate
             //id=-1
             NextQuestion();
             //id=0
-            
+
             base.OnLoad(e);
         }
 
@@ -47,8 +48,17 @@ namespace PowerLearnCandidate
         private void singleAnswerControl1_Applied(object sender, StringEventArgs e)
         {
             //id=2
-            question.Answers[0].EnteredAnswer = e.Value;
-            NextQuestion();
+            if (!applied)
+            {
+                singleAnswerControl.ShowAnswers();
+                applied = true;
+            }
+            else
+            {
+                question.Answers[0].EnteredAnswer = e.Value;
+                NextQuestion();
+                applied = false;
+            }
             //id=3
         }
 
@@ -57,12 +67,12 @@ namespace PowerLearnCandidate
             if (forward)
             {
                 id++;
-                navigationControl1.Forward();
+                navigationControl.Forward();
             }
             else
             {
                 id--;
-                navigationControl1.Back();
+                navigationControl.Back();
             }
             if (id >= test.Questions.Count)
             {
@@ -93,7 +103,16 @@ namespace PowerLearnCandidate
 
         private void multipleAnswersControl_Applied(object sender, EventArgs e)
         {
-            NextQuestion();
+            if (!applied)
+            {
+                multipleAnswersControl.ShowAnswers();
+                applied = true;
+            }
+            else
+            {
+                NextQuestion();
+                applied = false;
+            }
         }
 
         private void multipleAnswersControl_MouseMove(object sender, MouseEventArgs e)

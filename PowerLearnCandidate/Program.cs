@@ -18,6 +18,7 @@ namespace PowerLearnCandidate
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ApplicationExit += Application_ApplicationExit;
+            FileServer.Instance = new FileServer("130.61.26.111", "3001");
             if (args.Length == 0)
             {
                 var edf = new EnterDataForm();

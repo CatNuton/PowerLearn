@@ -34,10 +34,9 @@ namespace PowerLearnCandidate
                     Patronym = tbPatronym.Text
                 }
             };
-            var fs = new FileServer("130.61.26.111", "3001");
             try
             {
-                var tb = await fs.Download(tbId.Text, Candidate.ToString());
+                var tb = await FileServer.Instance.Download(tbId.Text, Candidate.ToString());
                 Path = System.IO.Path.GetTempFileName();
                 File.WriteAllBytes(Path, tb);
                 DialogResult = DialogResult.OK;

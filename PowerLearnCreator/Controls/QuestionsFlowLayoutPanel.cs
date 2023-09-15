@@ -81,7 +81,7 @@ namespace PowerLearnCreator
             SetVisualStyle(question, questBtn);
         }
 
-        private void SetVisualStyle(Question question, SelectableButton questBtn)
+        public void SetVisualStyle(Question question, SelectableButton questBtn)
         {
             questBtn.Selected = ActiveQuestion == question;
         }

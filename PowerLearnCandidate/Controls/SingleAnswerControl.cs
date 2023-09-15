@@ -53,6 +53,23 @@ namespace PowerLearnCandidate.Controls
             }
         }
 
+
+        public void ShowAnswers()
+        {
+            var answerText = question.Answers[0].Text.Trim();
+            var enteredText = tbAnswer.Text;
+            if (answerText.Equals(enteredText, StringComparison.OrdinalIgnoreCase))
+            {
+                tbAnswer.BorderColor = Color.LightGreen;
+            }
+            else
+            {
+                tbAnswer.BorderColor = Color.FromArgb(241, 128, 126);
+            }
+            tbAnswer.Invalidate();
+            btnApply.Text = "Apply";
+        }
+
         public SingleAnswerControl()
         {
             InitializeComponent();
