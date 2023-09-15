@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PowerLearn.Serialization;
 
 namespace PowerLearnCreator
 {
@@ -17,8 +18,14 @@ namespace PowerLearnCreator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.ApplicationExit += Application_ApplicationExit;
             FileServer.Instance = new FileServer("130.61.26.111", "3001");
             Application.Run(new CreatorForm());
+        }
+
+        private static void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            Helper.Clean();
         }
     }
 }

@@ -140,6 +140,7 @@ namespace PowerLearnCreator
             {
                 return;
             }
+            Helper.Clean();
             using (var sr = new StreamReader(openFileDialog.FileName))
             {
                 var s = new XmlSerializer(typeof(TestProxy));
