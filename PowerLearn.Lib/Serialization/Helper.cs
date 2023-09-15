@@ -1,17 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
-using System.Xml;
 using System.Drawing;
 using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
+using System.Linq;
 
 namespace PowerLearn.Serialization
 {
     public static class Helper
     {
+
+        private static readonly Dictionary<Image, MemoryStream> images = new Dictionary<Image, MemoryStream>();
+
+        public static void Clean()
+        {
+            foreach (var item in images)
+            {
+                try
+                {
+                    item.Value.Dispose();
+                    item.Key.Dispose();
+                }
+                catch (Exception)
+                {
+                    //continue;
+                }
+            }
+        }
+
         public static void Serialize<T>(this T o, XmlWriter writer, string root)
         {
             var ns = new XmlSerializerNamespaces();
@@ -20,7 +37,7 @@ namespace PowerLearn.Serialization
             var sr = new XmlSerializer(typeof(T), xmlra);//Test.Author.GetType()
             sr.Serialize(writer, o, ns);
         }
-        
+
         public static T Deserialize<T>(this XmlReader reader, string root)
         {
             var xmlra = new XmlRootAttribute(root);
@@ -41,10 +58,10 @@ namespace PowerLearn.Serialization
         public static Image ToImage(this string base64)
         {
             var bytes = Convert.FromBase64String(base64);
-            using (var ms = new MemoryStream(bytes))
-            {
-                return Image.FromStream(ms);
-            }
+            var ms = new MemoryStream(bytes);
+            var result = Image.FromStream(ms);
+            images.Add(result, ms);
+            return result;
         }
     }
 }

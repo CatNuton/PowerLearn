@@ -17,6 +17,7 @@ namespace PowerLearnCandidate
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.ApplicationExit += Application_ApplicationExit;
             FileServer.Instance = new FileServer("130.61.26.111", "3001");
             if (args.Length == 0)
             {
@@ -35,6 +36,11 @@ namespace PowerLearnCandidate
                 test.Candidate = test.Author;
                 Application.Run(new TestForm(test));
             }
+        }
+
+        private static void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            Helper.Clean();
         }
 
         private static Test GetTestFromFile(string path)
