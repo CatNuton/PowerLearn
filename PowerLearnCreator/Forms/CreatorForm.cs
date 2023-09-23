@@ -99,7 +99,7 @@ namespace PowerLearnCreator
 
         private void qstcntrlQuestionRedactor_AddImageClick(object sender, AddImageEventArgs e)
         {
-            adjflQuestionList.ActiveQuestion.Image = e.Image;
+            adjflQuestionList.ActiveQuestion.Image = e.Image.TryResize(600);
             QuestionControlPanel.Build(adjflQuestionList.ActiveQuestion);
         }
 
