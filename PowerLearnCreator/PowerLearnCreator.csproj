@@ -74,7 +74,7 @@
     <Compile Include="Controls\GoogleTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\Helper.cs" />
+    <Compile Include="Controls\ImageHelper.cs" />
     <Compile Include="Controls\QuestionEventArgs.cs" />
     <Compile Include="Controls\QuestionsFlowLayoutPanel.cs">
       <SubType>Component</SubType>
