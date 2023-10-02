@@ -49,7 +49,7 @@ namespace PowerLearn.Serialization
             reader.Read(); // Test to author
             test.Author = reader.Deserialize<Person>(nameof(test.Author));
             test.Candidate = reader.Deserialize<Person>(nameof(test.Candidate));
-            test.Questions = new List<Question> ();
+            test.Questions = new List<Question>();
             if (reader.IsEmptyElement)
             {
                 return;
@@ -91,7 +91,7 @@ namespace PowerLearn.Serialization
             writer.WriteAttributeString(nameof(Test.Uploaded), Test.Uploaded.ToString());
             //NewMethod(Test.Author, writer, "Author");
             Test.Author.Serialize(writer, nameof(Test.Author));
-            Test.Candidate.Serialize(writer, nameof(Test.Candidate));   
+            Test.Candidate.Serialize(writer, nameof(Test.Candidate));
             writer.WriteStartElement(nameof(Test.Questions));
             foreach (var q in Test.Questions)
             {
@@ -116,6 +116,6 @@ namespace PowerLearn.Serialization
         //    var sr = new XmlSerializer(typeof(T), xmlra);//Test.Author.GetType()
         //    sr.Serialize(writer, o);
         //}
-        
+
     }
 }

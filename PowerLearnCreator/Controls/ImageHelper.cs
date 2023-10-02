@@ -9,35 +9,24 @@ namespace PowerLearnCreator.Controls
 {
     public static class ImageHelper
     {
-        public static Image TryResize(this Image img, int treshold)
+        public static Image Resize(this Image img, Size desiredSize)
         {
-            if (img.Width <= treshold && img.Height <= treshold)
-            {
-                return img;
-            }
-            var ratio = img.Height / (float)img.Width;//10/30=0.33
-            var size = new Size();
-            if (img.Width > img.Height)
-            {
-                size.Width = treshold;
-                size.Height = (int)(ratio * size.Width);
-            }
-            else if (img.Width < img.Height)
-            {
-                size.Height = treshold;
-                size.Width = (int)(size.Height / ratio);
-            }
-            else
-            {
-                size.Height = treshold;
-                size.Width = treshold;
-            }
-            var result = new Bitmap(size.Width, size.Height);
+            var ratioW = (float)desiredSize.Width / img.Width;
+            var rationH = (float)desiredSize.Height / img.Height;
+            var ratio = Math.Min(ratioW, rationH);
+            var w = (int)(img.Width * ratio);
+            var h = (int)(img.Height * ratio);
+            var result = new Bitmap(w, h);
             using (var g = Graphics.FromImage(result))
             {
-                g.DrawImage(img, 0, 0, size.Width, size.Height);
+                g.DrawImage(img, 0, 0, result.Width, result.Height);
             }
             return result;
+        }
+
+        public static Image Resize(this Image bmp, int width, int height)
+        {
+            return bmp.Resize(new Size(width, height));
         }
     }
 }

@@ -65,7 +65,18 @@ namespace PowerLearnCandidate.Controls
             tlpAnswersPanel.ColumnCount = 1;
             tlpAnswersPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             this.question = question;
-            pbImage.Image = question.Image;
+            if (this.question.Image == null)
+            {
+                tableLayoutPanel.ColumnStyles[0].SizeType = SizeType.Absolute; 
+                tableLayoutPanel.ColumnStyles[0].Width = 0;
+                pbImage.Visible = false;
+            }
+            else
+            {
+                tableLayoutPanel.ColumnStyles[0].SizeType = SizeType.Percent; 
+                tableLayoutPanel.ColumnStyles[0].Width = 33;
+                pbImage.Image = this.question.Image;
+            }
             lblQuestionText.Text = question.Text;
             foreach (var answer in question.Answers)
             {

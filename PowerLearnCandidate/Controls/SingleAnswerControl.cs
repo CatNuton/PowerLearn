@@ -79,7 +79,14 @@ namespace PowerLearnCandidate.Controls
         {
             tbAnswer.Text = "";
             this.question = question;
-            pbImage.Image = this.question.Image;
+            if (this.question.Image == null)
+            {
+                pbImage.Visible = false;
+            }
+            else
+            {
+                pbImage.Image = this.question.Image;
+            }
             lblQuestionText.Text = this.question.Text;
         }
 

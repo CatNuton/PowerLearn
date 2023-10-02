@@ -67,7 +67,7 @@
             // 
             this.tlpContainer.BackColor = System.Drawing.Color.White;
             this.tlpContainer.ColumnCount = 2;
-            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 268F));
+            this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpContainer.Controls.Add(this.lblQuestionText, 1, 0);
             this.tlpContainer.Controls.Add(this.pbImage, 0, 0);
