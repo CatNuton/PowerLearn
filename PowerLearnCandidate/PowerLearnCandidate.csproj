@@ -64,10 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\AnswerVariant.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\AnswerVariant.Designer.cs">
-      <DependentUpon>AnswerVariant.cs</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\EventArgs.cs" />
     <Compile Include="Controls\GoogleTextBox.cs">
@@ -90,6 +87,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RoundedCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\SingleAnswerControl.cs">
