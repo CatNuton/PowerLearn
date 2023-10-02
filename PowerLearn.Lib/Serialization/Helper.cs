@@ -57,6 +57,10 @@ namespace PowerLearn.Serialization
 
         public static Image ToImage(this string base64)
         {
+            if (string.IsNullOrEmpty(base64))
+            {
+                return default;
+            }
             var bytes = Convert.FromBase64String(base64);
             var ms = new MemoryStream(bytes);
             var result = Image.FromStream(ms);
