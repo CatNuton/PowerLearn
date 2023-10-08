@@ -111,7 +111,7 @@ namespace PowerLearn
                 "application/x-www-form-urlencoded"))
             {
                 var client = new HttpClient();
-                var response = await client.PostAsync($"http://{address}:{port}", content);
+                var response = await client.PostAsync($"http://{address}:{port}", content).ConfigureAwait(false);
                 response.EnsureSuccessStatusCode();
                 return await response.Content.ReadAsStringAsync();
             }
