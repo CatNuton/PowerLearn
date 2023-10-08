@@ -99,7 +99,7 @@ namespace PowerLearnCreator
 
         private void qstcntrlQuestionRedactor_AddImageClick(object sender, AddImageEventArgs e)
         {
-            adjflQuestionList.ActiveQuestion.Image = e.Image.TryResize(600);
+            adjflQuestionList.ActiveQuestion.Image = e.Image.Resize(new Size(600, 600));
             QuestionControlPanel.Build(adjflQuestionList.ActiveQuestion);
         }
 
@@ -146,6 +146,7 @@ namespace PowerLearnCreator
                 var s = new XmlSerializer(typeof(TestProxy));
                 var sres = (TestProxy)s.Deserialize(sr);
                 currentTest = sres.Test;
+                currentTest.Uploaded = CheckIfTestUploaded();
                 savedFilePath = openFileDialog.FileName;
                 UpdateInterface();
             }
@@ -300,6 +301,19 @@ namespace PowerLearnCreator
         private void tsbOpenChecker_Click(object sender, EventArgs e)
         {
             Process.Start("PowerLearnChecker", currentTest.Id.ToString());
+        }
+
+        private bool CheckIfTestUploaded()
+        {
+            try
+            {
+                var r = FileServer.Instance.SendVerb("verb", "ifUploaded", "id", currentTest.Id.ToString()).Result;
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
