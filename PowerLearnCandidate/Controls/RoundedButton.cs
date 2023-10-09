@@ -23,8 +23,6 @@ namespace PowerLearnCandidate.Controls
             {
                 e.Graphics.FillPath(hoverBrush, Path);
             }
-
-
         }
     }
 }

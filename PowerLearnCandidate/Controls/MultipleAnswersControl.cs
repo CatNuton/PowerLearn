@@ -104,11 +104,11 @@ namespace PowerLearnCandidate.Controls
                 variant = (AnswerVariant)tlpAnswersPanel.Controls[c];
                 if (!answer.IsRight)
                 {
-                    variant.ButtonBackColor = Color.FromArgb(241, 128, 126);
+                    variant.BackColor = Color.FromArgb(241, 128, 126);
                 }
                 else
                 {
-                    variant.ButtonBackColor = Color.LightGreen;
+                    variant.BackColor = Color.LightGreen;
                 }
                 c++;
             }
