@@ -114,7 +114,7 @@ namespace PowerLearnCandidate.Controls
             Font = new Font("Arial", 11.25F, FontStyle.Regular);
             ForeColor = Color.Black;
             BackColor = Color.White;
-
+            Padding = new Padding(5,0,5,3);
             Cursor = Cursors.IBeam;
 
             SF.Alignment = StringAlignment.Center;
@@ -199,7 +199,7 @@ namespace PowerLearnCandidate.Controls
 
             graph.Clear(Parent.BackColor);
 
-            TopBorderOffset = graph.MeasureString(TextPreview, FontTextPreview).ToSize().Height / 2;
+            TopBorderOffset = (int)(graph.MeasureString(TextPreview, FontTextPreview).Height / 2);
 
             Font FontTextPreviewActual = new Font(FontTextPreview.FontFamily, FontSizeTextPreviewAnim.Value, FontTextPreview.Style);
 
@@ -216,7 +216,7 @@ namespace PowerLearnCandidate.Controls
             Rectangle rectBase = new Rectangle(0, TopBorderOffset, Width - 1, Height - 1 - TopBorderOffset);
 
             Size TextPreviewRectSize = graph.MeasureString(TextPreview, FontTextPreviewActual).ToSize();
-            Rectangle rectTextPreview = new Rectangle(5, (int)LocationTextPreviewAnim.Value, TextPreviewRectSize.Width + 3, TextPreviewRectSize.Height);
+            Rectangle rectTextPreview = new Rectangle(Padding.Left, (int)Math.Truncate(LocationTextPreviewAnim.Value), TextPreviewRectSize.Width + Padding.Right, TextPreviewRectSize.Height-Padding.Bottom);
 
             // Обводка
             graph.DrawRectangle(new Pen(tbInput.Text.Length > 0 || tbInput.Focused ?
