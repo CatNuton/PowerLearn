@@ -15,15 +15,19 @@ namespace PowerLearnCandidate.Controls
         protected SolidBrush textBrush;
         protected LinearGradientBrush hoverBrush;
         protected SolidBrush backBrush;
-        private int rounding;
-        private bool isRounded;
+        private int rounding = 30;
+        private bool isRounded = true;
 
-        public Color HoverColor1 { get; set; }
-        public Color HoverColor2 { get; set; }
+        public Color HoverColor1 { get; set; } = Color.FromArgb(100, Color.White);
+        public Color HoverColor2 { get; set; } = Color.FromArgb(150, SystemColors.Control);
+        public Color CheckedBackColor { get; set; } = Color.FromArgb(200, SystemColors.ControlDarkDark);
+
+        public bool IgnoreChecked { get; set; }
 
         public RoundedCheckBox()
         {
             Appearance = Appearance.Button;
+            BackColor = SystemColors.Control;
             SetStyle(ControlStyles.UserPaint
                 | ControlStyles.OptimizedDoubleBuffer
                 | ControlStyles.ResizeRedraw
@@ -77,11 +81,6 @@ namespace PowerLearnCandidate.Controls
             base.OnCreateControl();
             textBrush = new SolidBrush(ForeColor);
             backBrush = new SolidBrush(BackColor);
-
-            hoverBrush = new LinearGradientBrush(new Point(0, 0),
-                     new Point(0, Height),
-                     Color.FromArgb(100, HoverColor1),
-                     Color.FromArgb(150, HoverColor2));
         }
 
         protected override void OnMouseEnter(EventArgs e)
@@ -116,6 +115,15 @@ namespace PowerLearnCandidate.Controls
         {
             base.OnSizeChanged(e);
             SetPath();
+            hoverBrush = new LinearGradientBrush(new Point(0, 0),
+                     new Point(0, Height),
+                     Color.FromArgb(100, HoverColor1),
+                     Color.FromArgb(150, HoverColor2));
+        }
+
+        protected override void OnCheckedChanged(EventArgs e)
+        {
+            base.OnCheckedChanged(e);
         }
 
         protected void DrawText(Graphics g)
@@ -125,7 +133,9 @@ namespace PowerLearnCandidate.Controls
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
             };
-            g.DrawString(Text, Font, textBrush, Width / 2f, Height / 2f, sf);
+            var h = FitTo(Text, Bounds, g, Font);
+            var f = new Font(Font.FontFamily, h, FontStyle.Bold, GraphicsUnit.Pixel);
+            g.DrawString(Text, f, textBrush, Width / 2f, Height / 2f, sf);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -133,12 +143,38 @@ namespace PowerLearnCandidate.Controls
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             e.Graphics.Clear(Parent.BackColor);
             //e.Graphics.SetClip(Path);
-            e.Graphics.FillPath(backBrush, Path);
-            DrawText(e.Graphics);
+            if (Checked && !IgnoreChecked)
+            {
+                e.Graphics.FillPath(SystemBrushes.ControlDark, Path);
+            }
+            else
+            {
+                e.Graphics.FillPath(backBrush, Path);
+            }
             if (mouseEntered)
             {
                 e.Graphics.FillPath(hoverBrush, Path);
             }
+            DrawText(e.Graphics);
+        }
+
+        private static float FitTo(string text, Rectangle rect, Graphics g, Font f)
+        {
+            var h = (float)rect.Height;
+            var w = g.MeasureString(text, new Font(f.FontFamily, h, f.Style)).Width;
+            while (Math.Abs(w - rect.Width) > 1)
+            {
+                if (w > rect.Width)
+                {
+                    h -= h / 2;
+                }
+                else if (w < rect.Width)
+                {
+                    h += h / 2;
+                }
+                w = g.MeasureString(text, new Font(f.FontFamily, h, f.Style, GraphicsUnit.Pixel)).Width;
+            }
+            return h;
         }
     }
 }

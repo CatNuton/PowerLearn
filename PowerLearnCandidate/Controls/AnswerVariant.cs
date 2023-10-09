@@ -24,6 +24,7 @@ namespace PowerLearnCandidate.Controls
         {
             this.answer = answer;
             Text = answer.Text;
+            IgnoreChecked = false;
         }
 
         protected override void OnCheckedChanged(EventArgs e)

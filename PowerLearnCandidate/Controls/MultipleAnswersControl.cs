@@ -96,12 +96,12 @@ namespace PowerLearnCandidate.Controls
 
         public void ShowAnswers()
         {
-            var c = 0;
+            var i = 0;
             btnApply.Text = "Apply";
-            AnswerVariant variant;
             foreach (var answer in question.Answers)
             {
-                variant = (AnswerVariant)tlpAnswersPanel.Controls[c];
+                var variant = (AnswerVariant)tlpAnswersPanel.Controls[i];
+                variant.IgnoreChecked = true;
                 if (!answer.IsRight)
                 {
                     variant.BackColor = Color.FromArgb(241, 128, 126);
@@ -110,7 +110,7 @@ namespace PowerLearnCandidate.Controls
                 {
                     variant.BackColor = Color.LightGreen;
                 }
-                c++;
+                i++;
             }
         }
 
