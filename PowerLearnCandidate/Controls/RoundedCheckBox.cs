@@ -133,9 +133,7 @@ namespace PowerLearnCandidate.Controls
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
             };
-            var h = FitTo(Text, Bounds, g, Font);
-            var f = new Font(Font.FontFamily, h, FontStyle.Bold, GraphicsUnit.Pixel);
-            g.DrawString(Text, f, textBrush, Width / 2f, Height / 2f, sf);
+            g.DrawString(Text, Font, textBrush, Width / 2f, Height / 2f, sf);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -156,25 +154,6 @@ namespace PowerLearnCandidate.Controls
                 e.Graphics.FillPath(hoverBrush, Path);
             }
             DrawText(e.Graphics);
-        }
-
-        private static float FitTo(string text, Rectangle rect, Graphics g, Font f)
-        {
-            var h = (float)rect.Height;
-            var w = g.MeasureString(text, new Font(f.FontFamily, h, f.Style)).Width;
-            while (Math.Abs(w - rect.Width) > 1)
-            {
-                if (w > rect.Width)
-                {
-                    h -= h / 2;
-                }
-                else if (w < rect.Width)
-                {
-                    h += h / 2;
-                }
-                w = g.MeasureString(text, new Font(f.FontFamily, h, f.Style, GraphicsUnit.Pixel)).Width;
-            }
-            return h;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace PowerLearnCandidate.Controls
     public partial class MultipleAnswersControl : UserControl
     {
         private Question question;
+        private AnswerVariant widestVariant;
         public event EventHandler Applied;
         public new event MouseEventHandler MouseMove
         {
@@ -84,15 +85,63 @@ namespace PowerLearnCandidate.Controls
                 {
                     Dock = DockStyle.Fill
                 };
-                av.Build(answer);
                 tlpAnswersPanel.Controls.Add(av, tlpAnswersPanel.ColumnCount - 1, 0);
                 tlpAnswersPanel.ColumnCount++;
                 tlpAnswersPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+                av.Build(answer);
             }
             tlpAnswersPanel.ColumnStyles.RemoveAt(tlpAnswersPanel.ColumnCount - 1);
             tlpAnswersPanel.Invalidate();
+            widestVariant = tlpAnswersPanel.Controls[0] as AnswerVariant;
+            for (int i = 1; i < tlpAnswersPanel.Controls.Count; i++)
+            {
+                var v1 = tlpAnswersPanel.Controls[i] as AnswerVariant; 
+                var v1w = TextRenderer.MeasureText(v1.Text, v1.Font).Width;
+                var v0w = TextRenderer.MeasureText(widestVariant.Text, widestVariant.Font).Width;
+                if (v1w > v0w)
+                {
+                    widestVariant = v1;
+                }
+            }
+            var h = FitTo(widestVariant.Text, widestVariant.ClientRectangle, widestVariant.Font);
+            foreach (AnswerVariant variant in tlpAnswersPanel.Controls)
+            {
+                variant.Font = new Font(variant.Font.FontFamily, h, variant.Font.Style);
+            }
         }
 
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnResize(e);
+            if (tlpAnswersPanel.Controls.Count == 0 || widestVariant == null)
+            {
+                return;
+            }
+            var h = FitTo(widestVariant.Text, widestVariant.ClientRectangle, widestVariant.Font);
+            foreach (AnswerVariant variant in tlpAnswersPanel.Controls)
+            {
+                variant.Font = new Font(variant.Font.FontFamily, h, variant.Font.Style, GraphicsUnit.Pixel);
+            }
+        }
+
+        private static float FitTo(string text, Rectangle rect, Font f)
+        {
+            var h = (float)rect.Height;
+            var w = TextRenderer.MeasureText(text, new Font(f.FontFamily, h, f.Style)).Width;
+            while (Math.Abs(w - rect.Width) > 1)
+            {
+                if (w > rect.Width)
+                {
+                    h -= h / 2;
+                }
+                else if (w < rect.Width)
+                {
+                    h += h / 2;
+                }
+                w = TextRenderer.MeasureText(text, new Font(f.FontFamily, h, f.Style, GraphicsUnit.Pixel)).Width;
+            }
+            return h;
+        }
 
         public void ShowAnswers()
         {
