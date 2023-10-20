@@ -265,10 +265,10 @@ namespace PowerLearnCreator
             {
                 btnUpload.Enabled = false;
                 currentTest.Uploaded = true;
+                btnSaveTest_Click(this, e);
                 var r = await FileServer.Instance.Upload(savedFilePath, "verb", "upload", "id", currentTest.Id.ToString());
                 var mcb = new MessageCopyBox();
                 mcb.ShowMessage(r, currentTest.Id.ToString(), "id");
-                btnSaveTest_Click(this, e);
             }
             catch (Exception ex)
             {
