@@ -68,13 +68,13 @@ namespace PowerLearnCandidate.Controls
             this.question = question;
             if (this.question.Image == null)
             {
-                tableLayoutPanel.ColumnStyles[0].SizeType = SizeType.Absolute; 
+                tableLayoutPanel.ColumnStyles[0].SizeType = SizeType.Absolute;
                 tableLayoutPanel.ColumnStyles[0].Width = 0;
                 pbImage.Visible = false;
             }
             else
             {
-                tableLayoutPanel.ColumnStyles[0].SizeType = SizeType.Percent; 
+                tableLayoutPanel.ColumnStyles[0].SizeType = SizeType.Percent;
                 tableLayoutPanel.ColumnStyles[0].Width = 33;
                 pbImage.Image = this.question.Image;
             }
@@ -93,20 +93,21 @@ namespace PowerLearnCandidate.Controls
             tlpAnswersPanel.ColumnStyles.RemoveAt(tlpAnswersPanel.ColumnCount - 1);
             tlpAnswersPanel.Invalidate();
             widestVariant = tlpAnswersPanel.Controls[0] as AnswerVariant;
+            var s = new Size(1, 1);
             for (int i = 1; i < tlpAnswersPanel.Controls.Count; i++)
             {
-                var v1 = tlpAnswersPanel.Controls[i] as AnswerVariant; 
-                var v1w = TextRenderer.MeasureText(v1.Text, v1.Font).Width;
-                var v0w = TextRenderer.MeasureText(widestVariant.Text, widestVariant.Font).Width;
-                if (v1w > v0w)
+                var v1 = tlpAnswersPanel.Controls[i] as AnswerVariant;
+                var v1w = TextRenderer.MeasureText(v1.Text, v1.Font, s, TextFormatFlags.WordBreak);
+                var v0w = TextRenderer.MeasureText(widestVariant.Text, widestVariant.Font, s, TextFormatFlags.WordBreak);
+                if (v1w.Width > v0w.Width)
                 {
                     widestVariant = v1;
                 }
             }
-            var h = FitTo(widestVariant.Text, widestVariant.ClientRectangle, widestVariant.Font);
+            var font = FitTo(widestVariant.Text, widestVariant.ClientRectangle, widestVariant.Font);
             foreach (AnswerVariant variant in tlpAnswersPanel.Controls)
             {
-                variant.Font = new Font(variant.Font.FontFamily, h, variant.Font.Style);
+                variant.Font = font;
             }
         }
 
@@ -117,30 +118,24 @@ namespace PowerLearnCandidate.Controls
             {
                 return;
             }
-            var h = FitTo(widestVariant.Text, widestVariant.ClientRectangle, widestVariant.Font);
+            var font = FitTo(widestVariant.Text, widestVariant.ClientRectangle, widestVariant.Font);
             foreach (AnswerVariant variant in tlpAnswersPanel.Controls)
             {
-                variant.Font = new Font(variant.Font.FontFamily, h, variant.Font.Style, GraphicsUnit.Pixel);
+                variant.Font = font;
             }
         }
 
-        private static float FitTo(string text, Rectangle rect, Font f)
+        private Font FitTo(string text, Rectangle rect, Font f)
         {
-            var h = (float)rect.Height;
-            var w = TextRenderer.MeasureText(text, new Font(f.FontFamily, h, f.Style)).Width;
-            while (Math.Abs(w - rect.Width) > 1)
+            var h = 1f;
+            var tf = TextFormatFlags.WordBreak | TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter;
+            var size = TextRenderer.MeasureText(text, new Font(f.FontFamily, h, f.Style), rect.Size, tf);
+            while (size.Width < rect.Width && size.Height < rect.Height)
             {
-                if (w > rect.Width)
-                {
-                    h -= h / 2;
-                }
-                else if (w < rect.Width)
-                {
-                    h += h / 2;
-                }
-                w = TextRenderer.MeasureText(text, new Font(f.FontFamily, h, f.Style, GraphicsUnit.Pixel)).Width;
+                h += 0.5f;
+                size = TextRenderer.MeasureText(text, new Font(f.FontFamily, h, f.Style, GraphicsUnit.Pixel), rect.Size, tf);
             }
-            return h;
+            return new Font(f.FontFamily, h - 0.5f, f.Style, GraphicsUnit.Pixel);
         }
 
         public void ShowAnswers()

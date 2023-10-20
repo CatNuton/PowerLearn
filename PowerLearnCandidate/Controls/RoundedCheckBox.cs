@@ -133,7 +133,9 @@ namespace PowerLearnCandidate.Controls
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
             };
-            g.DrawString(Text, Font, textBrush, Width / 2f, Height / 2f, sf);
+            var tf = TextFormatFlags.WordBreak | TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter;
+            //g.DrawString(Text, Font, textBrush, Width / 2f, Height / 2f, sf);
+            TextRenderer.DrawText(g, Text, Font, ClientRectangle, textBrush.Color, Color.Transparent, tf);
         }
 
         protected override void OnPaint(PaintEventArgs e)

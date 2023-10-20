@@ -46,5 +46,10 @@ namespace PowerLearnCandidate.Controls
             }
             return value;
         }
+
+        internal static float Area(this Size size)
+        {
+            return size.Width * size.Height;
+        }
     }
 }
