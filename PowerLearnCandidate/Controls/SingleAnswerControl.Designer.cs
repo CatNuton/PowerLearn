@@ -31,7 +31,7 @@
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.lblQuestionText = new System.Windows.Forms.Label();
             this.tlpContainer = new System.Windows.Forms.TableLayoutPanel();
-            this.btnApply = new PowerLearnCandidate.Controls.RoundedButton();
+            this.btnApply = new PowerLearn.Controls.RoundedButton();
             this.tbAnswer = new PowerLearn.Controls.GoogleTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.tlpContainer.SuspendLayout();
@@ -146,7 +146,7 @@
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Label lblQuestionText;
         private System.Windows.Forms.TableLayoutPanel tlpContainer;
-        private RoundedButton btnApply;
+        private PowerLearn.Controls.RoundedButton btnApply;
         private PowerLearn.Controls.GoogleTextBox tbAnswer;
     }
 }

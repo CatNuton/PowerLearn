@@ -31,10 +31,10 @@ namespace PowerLearnCreator.Forms
         private void InitializeComponent()
         {
             this.aflpAccountSettings = new PowerLearnCreator.Controls.AdjustableFlowLayoutPanel();
-            this.tbPatronym = new GoogleTextBox();
-            this.tbFirstName = new PowerLearn.Controls.GoogleTextBox();
             this.tbLastName = new PowerLearn.Controls.GoogleTextBox();
-            this.btnSaveAuthor = new System.Windows.Forms.Button();
+            this.tbFirstName = new PowerLearn.Controls.GoogleTextBox();
+            this.tbPatronym = new PowerLearn.Controls.GoogleTextBox();
+            this.btnSaveAuthor = new PowerLearn.Controls.RoundedButton();
             this.aflpAccountSettings.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,24 +56,25 @@ namespace PowerLearnCreator.Forms
             this.aflpAccountSettings.TabIndex = 3;
             this.aflpAccountSettings.WrapContents = false;
             // 
-            // tbPatronym
+            // tbLastName
             // 
-            this.tbPatronym.BackColor = System.Drawing.Color.White;
-            this.tbPatronym.BorderColor = System.Drawing.Color.DeepSkyBlue;
-            this.tbPatronym.BorderColorNotActive = System.Drawing.Color.DarkGray;
-            this.tbPatronym.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbPatronym.Font = new System.Drawing.Font("Arial", 11F);
-            this.tbPatronym.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
-            this.tbPatronym.ForeColor = System.Drawing.Color.Black;
-            this.tbPatronym.Location = new System.Drawing.Point(8, 105);
-            this.tbPatronym.Name = "tbPatronym";
-            this.tbPatronym.SelectionStart = 0;
-            this.tbPatronym.Size = new System.Drawing.Size(239, 40);
-            this.tbPatronym.TabIndex = 9;
-            this.tbPatronym.TextInput = "";
-            this.tbPatronym.TextPreview = "Patronym";
-            this.tbPatronym.UseSystemPasswordChar = false;
-            this.tbPatronym.TextChanged += new System.EventHandler(this.TextBoxes_TextChanged);
+            this.tbLastName.BackColor = System.Drawing.Color.White;
+            this.tbLastName.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbLastName.BorderColorNotActive = System.Drawing.Color.DarkGray;
+            this.tbLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbLastName.Font = new System.Drawing.Font("Arial", 11F);
+            this.tbLastName.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.tbLastName.ForeColor = System.Drawing.Color.Black;
+            this.tbLastName.Location = new System.Drawing.Point(8, 13);
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Padding = new System.Windows.Forms.Padding(5, 0, 5, 3);
+            this.tbLastName.SelectionStart = 0;
+            this.tbLastName.Size = new System.Drawing.Size(239, 40);
+            this.tbLastName.TabIndex = 7;
+            this.tbLastName.TextInput = "";
+            this.tbLastName.TextPreview = "Last Name";
+            this.tbLastName.UseSystemPasswordChar = false;
+            this.tbLastName.TextChanged += new System.EventHandler(this.TextBoxes_TextChanged);
             // 
             // tbFirstName
             // 
@@ -86,6 +87,7 @@ namespace PowerLearnCreator.Forms
             this.tbFirstName.ForeColor = System.Drawing.Color.Black;
             this.tbFirstName.Location = new System.Drawing.Point(8, 59);
             this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.Padding = new System.Windows.Forms.Padding(5, 0, 5, 3);
             this.tbFirstName.SelectionStart = 0;
             this.tbFirstName.Size = new System.Drawing.Size(239, 40);
             this.tbFirstName.TabIndex = 8;
@@ -94,34 +96,40 @@ namespace PowerLearnCreator.Forms
             this.tbFirstName.UseSystemPasswordChar = false;
             this.tbFirstName.TextChanged += new System.EventHandler(this.TextBoxes_TextChanged);
             // 
-            // tbLastName
+            // tbPatronym
             // 
-            this.tbLastName.BackColor = System.Drawing.Color.White;
-            this.tbLastName.BorderColor = System.Drawing.Color.DeepSkyBlue;
-            this.tbLastName.BorderColorNotActive = System.Drawing.Color.DarkGray;
-            this.tbLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbLastName.Font = new System.Drawing.Font("Arial", 11F);
-            this.tbLastName.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
-            this.tbLastName.ForeColor = System.Drawing.Color.Black;
-            this.tbLastName.Location = new System.Drawing.Point(8, 13);
-            this.tbLastName.Name = "tbLastName";
-            this.tbLastName.SelectionStart = 0;
-            this.tbLastName.Size = new System.Drawing.Size(239, 40);
-            this.tbLastName.TabIndex = 7;
-            this.tbLastName.TextInput = "";
-            this.tbLastName.TextPreview = "Last Name";
-            this.tbLastName.UseSystemPasswordChar = false;
-            this.tbLastName.TextChanged += new System.EventHandler(this.TextBoxes_TextChanged);
+            this.tbPatronym.BackColor = System.Drawing.Color.White;
+            this.tbPatronym.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbPatronym.BorderColorNotActive = System.Drawing.Color.DarkGray;
+            this.tbPatronym.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbPatronym.Font = new System.Drawing.Font("Arial", 11F);
+            this.tbPatronym.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.tbPatronym.ForeColor = System.Drawing.Color.Black;
+            this.tbPatronym.Location = new System.Drawing.Point(8, 105);
+            this.tbPatronym.Name = "tbPatronym";
+            this.tbPatronym.Padding = new System.Windows.Forms.Padding(5, 0, 5, 3);
+            this.tbPatronym.SelectionStart = 0;
+            this.tbPatronym.Size = new System.Drawing.Size(239, 40);
+            this.tbPatronym.TabIndex = 9;
+            this.tbPatronym.TextInput = "";
+            this.tbPatronym.TextPreview = "Patronym";
+            this.tbPatronym.UseSystemPasswordChar = false;
+            this.tbPatronym.TextChanged += new System.EventHandler(this.TextBoxes_TextChanged);
             // 
             // btnSaveAuthor
             // 
+            this.btnSaveAuthor.BackColor = System.Drawing.Color.White;
             this.btnSaveAuthor.Enabled = false;
+            this.btnSaveAuthor.HoverColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnSaveAuthor.HoverColor2 = System.Drawing.Color.Silver;
+            this.btnSaveAuthor.IsRounded = true;
             this.btnSaveAuthor.Location = new System.Drawing.Point(8, 151);
             this.btnSaveAuthor.Name = "btnSaveAuthor";
+            this.btnSaveAuthor.Rounding = 30;
             this.btnSaveAuthor.Size = new System.Drawing.Size(239, 40);
             this.btnSaveAuthor.TabIndex = 6;
             this.btnSaveAuthor.Text = "Save";
-            this.btnSaveAuthor.UseVisualStyleBackColor = true;
+            this.btnSaveAuthor.UseVisualStyleBackColor = false;
             this.btnSaveAuthor.Click += new System.EventHandler(this.btnSaveAuthor_Click);
             // 
             // AuthorEditor
@@ -145,7 +153,7 @@ namespace PowerLearnCreator.Forms
         #endregion
 
         private Controls.AdjustableFlowLayoutPanel aflpAccountSettings;
-        private System.Windows.Forms.Button btnSaveAuthor;
+        private PowerLearn.Controls.RoundedButton btnSaveAuthor;
         private PowerLearn.Controls.GoogleTextBox tbPatronym;
         private GoogleTextBox tbFirstName;
         private PowerLearn.Controls.GoogleTextBox tbLastName;

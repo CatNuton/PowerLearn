@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PowerLearnCandidate.Controls
+namespace PowerLearn.Controls
 {
-    public static class Helper
+    public static class RoundedHelper
     {
         public static GraphicsPath Rounded(this Rectangle rect, float d)
         {

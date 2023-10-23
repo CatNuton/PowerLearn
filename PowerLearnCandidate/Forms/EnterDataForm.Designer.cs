@@ -31,13 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnterDataForm));
             this.lblAtention = new System.Windows.Forms.Label();
-            this.lblTestsForTest = new System.Windows.Forms.Label();
             this.placeholder = new System.Windows.Forms.Placeholder(this.components);
             this.tbPatronym = new PowerLearn.Controls.GoogleTextBox();
             this.tbFirstName = new PowerLearn.Controls.GoogleTextBox();
             this.tbLastName = new PowerLearn.Controls.GoogleTextBox();
             this.tbId = new PowerLearn.Controls.GoogleTextBox();
-            this.btnStartTest = new PowerLearnCandidate.Controls.RoundedButton();
+            this.btnStartTest = new PowerLearn.Controls.RoundedButton();
             this.SuspendLayout();
             // 
             // lblAtention
@@ -49,18 +48,6 @@
             this.lblAtention.TabIndex = 0;
             this.lblAtention.Text = "Attention! \r\nAfter the test starts, the program will enter to fullscreen mode!";
             this.lblAtention.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTestsForTest
-            // 
-            this.lblTestsForTest.Location = new System.Drawing.Point(345, 68);
-            this.lblTestsForTest.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTestsForTest.Name = "lblTestsForTest";
-            this.lblTestsForTest.Size = new System.Drawing.Size(287, 178);
-            this.lblTestsForTest.TabIndex = 1;
-            this.lblTestsForTest.Text = "You can use these additional tests to see, how to solve tests in Power Learn:\r\n1." +
-    " Test where you can\'t see all the questions. Id: test1\r\n2. Test where you can se" +
-    "e all the questions. Id: test2\r\n";
-            this.lblTestsForTest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // placeholder
             // 
@@ -173,7 +160,6 @@
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.tbId);
             this.Controls.Add(this.btnStartTest);
-            this.Controls.Add(this.lblTestsForTest);
             this.Controls.Add(this.lblAtention);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -189,9 +175,8 @@
         #endregion
 
         private System.Windows.Forms.Label lblAtention;
-        private System.Windows.Forms.Label lblTestsForTest;
         private System.Windows.Forms.Placeholder placeholder;
-        private Controls.RoundedButton btnStartTest;
+        private PowerLearn.Controls.RoundedButton btnStartTest;
         private PowerLearn.Controls.GoogleTextBox tbId;
         private PowerLearn.Controls.GoogleTextBox tbLastName;
         private PowerLearn.Controls.GoogleTextBox tbFirstName;

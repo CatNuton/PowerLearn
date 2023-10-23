@@ -1,10 +1,10 @@
-﻿using PowerLearnCandidate.Controls;
+﻿using PowerLearn.Controls;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace PowerLearnCandidate.Controls
+namespace PowerLearn.Controls
 {
     public class RoundedButton : Rounded
     {

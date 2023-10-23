@@ -32,7 +32,7 @@
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.tlpAnswersPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.btnApply = new PowerLearnCandidate.Controls.RoundedButton();
+            this.btnApply = new PowerLearn.Controls.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -140,6 +140,6 @@
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.TableLayoutPanel tlpAnswersPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private Controls.RoundedButton btnApply;
+        private PowerLearn.Controls.RoundedButton btnApply;
     }
 }

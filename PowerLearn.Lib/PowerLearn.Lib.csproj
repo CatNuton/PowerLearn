@@ -58,6 +58,13 @@
     <Compile Include="Animator\Animator.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="Candidate.cs" />
+    <Compile Include="Controls\RoundedHelper.cs" />
+    <Compile Include="Controls\Rounded.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FileServer.cs" />
     <Compile Include="FullName.cs" />
     <Compile Include="Controls\GoogleTextBox.cs">
