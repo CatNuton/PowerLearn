@@ -3,10 +3,10 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms.Design;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
-namespace PowerLearnCreator.Controls
+namespace PowerLearn.Controls
 {
     [Designer(typeof(ControlDesignerEx))] // ControlDesignerEx Добавляем для ограничения изменения размеров
     [DefaultProperty("TextPreview")]
@@ -93,14 +93,15 @@ namespace PowerLearnCreator.Controls
 
         #region -- Переменные --
 
-        StringFormat SF = new StringFormat();
-
-        int TopBorderOffset = 0;
-
-        TextBox tbInput = new TextBox();
-
-        Animation LocationTextPreviewAnim = new Animation();
-        Animation FontSizeTextPreviewAnim = new Animation();
+        private readonly StringFormat SF = new StringFormat
+        {
+            Alignment = StringAlignment.Center,
+            LineAlignment = StringAlignment.Center
+        };
+        private int TopBorderOffset = 0;
+        private TextBox tbInput = new TextBox();
+        private Animation LocationTextPreviewAnim = new Animation();
+        private Animation FontSizeTextPreviewAnim = new Animation();
 
         #endregion
 
@@ -113,11 +114,9 @@ namespace PowerLearnCreator.Controls
             Font = new Font("Arial", 11.25F, FontStyle.Regular);
             ForeColor = Color.Black;
             BackColor = Color.White;
-
+            Padding = new Padding(5, 0, 5, 3);
             Cursor = Cursors.IBeam;
 
-            SF.Alignment = StringAlignment.Center;
-            SF.LineAlignment = StringAlignment.Center;
 
             AdjustTextBoxInput();
             Controls.Add(tbInput);
@@ -135,15 +134,17 @@ namespace PowerLearnCreator.Controls
 
         private void AdjustTextBoxInput()
         {
-            tbInput = new TextBox();
-            tbInput.Name = "InputBox";
-            tbInput.BorderStyle = BorderStyle.None;
-            tbInput.BackColor = BackColor;
-            tbInput.ForeColor = ForeColor;
-            tbInput.Font = Font;
-            tbInput.Visible = false;
+            tbInput = new TextBox
+            {
+                Name = "InputBox",
+                BorderStyle = BorderStyle.None,
+                BackColor = BackColor,
+                ForeColor = ForeColor,
+                Font = Font,
+                Visible = false
+            };
 
-            int offset = TextRenderer.MeasureText(TextPreview, FontTextPreview).Height / 2;
+            var offset = TextRenderer.MeasureText(TextPreview, FontTextPreview).Height / 2;
             tbInput.Location = new Point(8, Height / 2 - offset);
             tbInput.Size = new Size(Width - 10, tbInput.Height);
 
@@ -162,6 +163,12 @@ namespace PowerLearnCreator.Controls
             TextPreviewAction(false);
         }
 
+        protected override void OnGotFocus(EventArgs e)
+        {
+            base.OnGotFocus(e);
+            TextPreviewAction(true);
+        }
+
         #region -- Обновление свойств tbInput --
         protected override void OnBackColorChanged(EventArgs e)
         {
@@ -173,7 +180,6 @@ namespace PowerLearnCreator.Controls
         {
             base.OnForeColorChanged(e);
             tbInput.ForeColor = ForeColor;
-
         }
 
         protected override void OnFontChanged(EventArgs e)
@@ -193,14 +199,14 @@ namespace PowerLearnCreator.Controls
         {
             base.OnPaint(e);
 
-            Graphics graph = e.Graphics;
-            graph.SmoothingMode = SmoothingMode.HighQuality;
+            var g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.HighQuality;
 
-            graph.Clear(Parent.BackColor);
+            g.Clear(Parent.BackColor);
 
-            TopBorderOffset = graph.MeasureString(TextPreview, FontTextPreview).ToSize().Height / 2;
+            TopBorderOffset = (int)(g.MeasureString(TextPreview, FontTextPreview).Height / 2);
 
-            Font FontTextPreviewActual = new Font(FontTextPreview.FontFamily, FontSizeTextPreviewAnim.Value, FontTextPreview.Style);
+            var FontTextPreviewActual = new Font(FontTextPreview.FontFamily, FontSizeTextPreviewAnim.Value, FontTextPreview.Style);
 
             if (!tbInput.Visible && FontTextPreviewActual.Size <= FontTextPreview.Size)
             {
@@ -212,23 +218,23 @@ namespace PowerLearnCreator.Controls
                 tbInput.Visible = false;
             }
 
-            Rectangle rectBase = new Rectangle(0, TopBorderOffset, Width - 1, Height - 1 - TopBorderOffset);
+            var rectBase = new Rectangle(0, TopBorderOffset, Width - 1, Height - 1 - TopBorderOffset);
 
-            Size TextPreviewRectSize = graph.MeasureString(TextPreview, FontTextPreviewActual).ToSize();
-            Rectangle rectTextPreview = new Rectangle(5, (int)LocationTextPreviewAnim.Value, TextPreviewRectSize.Width + 3, TextPreviewRectSize.Height);
+            var TextPreviewRectSize = g.MeasureString(TextPreview, FontTextPreviewActual).ToSize();
+            var rectTextPreview = new Rectangle(Padding.Left, (int)Math.Truncate(LocationTextPreviewAnim.Value), TextPreviewRectSize.Width + Padding.Right, TextPreviewRectSize.Height - Padding.Bottom);
 
             // Обводка
-            graph.DrawRectangle(new Pen(tbInput.Text.Length > 0 || tbInput.Focused ?
+            g.DrawRectangle(new Pen(tbInput.Text.Length > 0 || tbInput.Focused ?
                 BorderColor : BorderColorNotActive), rectBase);
 
             // Заголовок/Описание
-            graph.DrawRectangle(new Pen(Parent.BackColor), rectTextPreview);
-            graph.FillRectangle(new SolidBrush(Parent.BackColor), rectTextPreview);
+            g.DrawRectangle(new Pen(Parent.BackColor), rectTextPreview);
+            g.FillRectangle(new SolidBrush(Parent.BackColor), rectTextPreview);
 
             // Цвет внутри
-            graph.FillRectangle(new SolidBrush(BackColor), rectBase);
+            g.FillRectangle(new SolidBrush(BackColor), rectBase);
 
-            graph.DrawString(TextPreview, FontTextPreviewActual,
+            g.DrawString(TextPreview, FontTextPreviewActual,
                 new SolidBrush(tbInput.Text.Length > 0 || tbInput.Focused ?
                 BorderColor : BorderColorNotActive), rectTextPreview, SF);
         }
@@ -264,8 +270,8 @@ namespace PowerLearnCreator.Controls
             LocationTextPreviewAnim.StepDivider = 4;
             FontSizeTextPreviewAnim.StepDivider = 4;
 
-            Animator.Request(LocationTextPreviewAnim, true);
-            Animator.Request(FontSizeTextPreviewAnim, true);
+            Animator.Animator.Request(LocationTextPreviewAnim, true);
+            Animator.Animator.Request(FontSizeTextPreviewAnim, true);
         }
 
         protected override void OnMouseClick(MouseEventArgs e)
@@ -276,13 +282,13 @@ namespace PowerLearnCreator.Controls
         }
     }
 
-    class ControlDesignerEx : ControlDesigner
+    internal class ControlDesignerEx : ControlDesigner
     {
         public override SelectionRules SelectionRules
         {
             get
             {
-                SelectionRules sr = SelectionRules.LeftSizeable |
+                var sr = SelectionRules.LeftSizeable |
                     SelectionRules.RightSizeable |
                     SelectionRules.Moveable |
                     SelectionRules.Visible;

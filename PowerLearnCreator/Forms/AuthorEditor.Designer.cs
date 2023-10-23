@@ -1,4 +1,6 @@
-﻿namespace PowerLearnCreator.Forms
+﻿using PowerLearn.Controls;
+
+namespace PowerLearnCreator.Forms
 {
     partial class AuthorEditor
     {
@@ -29,9 +31,9 @@
         private void InitializeComponent()
         {
             this.aflpAccountSettings = new PowerLearnCreator.Controls.AdjustableFlowLayoutPanel();
-            this.tbPatronym = new Controls.GoogleTextBox();
-            this.tbFirstName = new Controls.GoogleTextBox();
-            this.tbLastName = new Controls.GoogleTextBox();
+            this.tbPatronym = new GoogleTextBox();
+            this.tbFirstName = new PowerLearn.Controls.GoogleTextBox();
+            this.tbLastName = new PowerLearn.Controls.GoogleTextBox();
             this.btnSaveAuthor = new System.Windows.Forms.Button();
             this.aflpAccountSettings.SuspendLayout();
             this.SuspendLayout();
@@ -144,8 +146,8 @@
 
         private Controls.AdjustableFlowLayoutPanel aflpAccountSettings;
         private System.Windows.Forms.Button btnSaveAuthor;
-        private Controls.GoogleTextBox tbPatronym;
-        private Controls.GoogleTextBox tbFirstName;
-        private Controls.GoogleTextBox tbLastName;
+        private PowerLearn.Controls.GoogleTextBox tbPatronym;
+        private GoogleTextBox tbFirstName;
+        private PowerLearn.Controls.GoogleTextBox tbLastName;
     }
 }

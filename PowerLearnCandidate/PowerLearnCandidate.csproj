@@ -67,9 +67,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\EventArgs.cs" />
-    <Compile Include="Controls\GoogleTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\Helper.cs" />
     <Compile Include="Controls\NavigationControl.cs">
       <SubType>UserControl</SubType>

@@ -71,9 +71,6 @@
     <Compile Include="Controls\EnumSplitButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\GoogleTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\ImageHelper.cs" />
     <Compile Include="Controls\QuestionEventArgs.cs" />
     <Compile Include="Controls\QuestionsFlowLayoutPanel.cs">

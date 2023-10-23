@@ -33,10 +33,10 @@
             this.lblAtention = new System.Windows.Forms.Label();
             this.lblTestsForTest = new System.Windows.Forms.Label();
             this.placeholder = new System.Windows.Forms.Placeholder(this.components);
-            this.tbPatronym = new PowerLearnCandidate.Controls.GoogleTextBox();
-            this.tbFirstName = new PowerLearnCandidate.Controls.GoogleTextBox();
-            this.tbLastName = new PowerLearnCandidate.Controls.GoogleTextBox();
-            this.tbId = new PowerLearnCandidate.Controls.GoogleTextBox();
+            this.tbPatronym = new PowerLearn.Controls.GoogleTextBox();
+            this.tbFirstName = new PowerLearn.Controls.GoogleTextBox();
+            this.tbLastName = new PowerLearn.Controls.GoogleTextBox();
+            this.tbId = new PowerLearn.Controls.GoogleTextBox();
             this.btnStartTest = new PowerLearnCandidate.Controls.RoundedButton();
             this.SuspendLayout();
             // 
@@ -77,6 +77,7 @@
             this.tbPatronym.ForeColor = System.Drawing.Color.Black;
             this.tbPatronym.Location = new System.Drawing.Point(21, 206);
             this.tbPatronym.Name = "tbPatronym";
+            this.tbPatronym.Padding = new System.Windows.Forms.Padding(5, 0, 5, 3);
             this.tbPatronym.SelectionStart = 0;
             this.tbPatronym.Size = new System.Drawing.Size(245, 40);
             this.tbPatronym.TabIndex = 5;
@@ -96,6 +97,7 @@
             this.tbFirstName.ForeColor = System.Drawing.Color.Black;
             this.tbFirstName.Location = new System.Drawing.Point(21, 160);
             this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.Padding = new System.Windows.Forms.Padding(5, 0, 5, 3);
             this.tbFirstName.SelectionStart = 0;
             this.tbFirstName.Size = new System.Drawing.Size(245, 40);
             this.tbFirstName.TabIndex = 4;
@@ -115,6 +117,7 @@
             this.tbLastName.ForeColor = System.Drawing.Color.Black;
             this.tbLastName.Location = new System.Drawing.Point(20, 114);
             this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Padding = new System.Windows.Forms.Padding(5, 0, 5, 3);
             this.tbLastName.SelectionStart = 0;
             this.tbLastName.Size = new System.Drawing.Size(245, 40);
             this.tbLastName.TabIndex = 3;
@@ -134,6 +137,7 @@
             this.tbId.ForeColor = System.Drawing.Color.Black;
             this.tbId.Location = new System.Drawing.Point(20, 68);
             this.tbId.Name = "tbId";
+            this.tbId.Padding = new System.Windows.Forms.Padding(5, 0, 5, 3);
             this.tbId.SelectionStart = 0;
             this.tbId.Size = new System.Drawing.Size(245, 40);
             this.tbId.TabIndex = 2;
@@ -188,10 +192,10 @@
         private System.Windows.Forms.Label lblTestsForTest;
         private System.Windows.Forms.Placeholder placeholder;
         private Controls.RoundedButton btnStartTest;
-        private Controls.GoogleTextBox tbId;
-        private Controls.GoogleTextBox tbLastName;
-        private Controls.GoogleTextBox tbFirstName;
-        private Controls.GoogleTextBox tbPatronym;
+        private PowerLearn.Controls.GoogleTextBox tbId;
+        private PowerLearn.Controls.GoogleTextBox tbLastName;
+        private PowerLearn.Controls.GoogleTextBox tbFirstName;
+        private PowerLearn.Controls.GoogleTextBox tbPatronym;
     }
 }
 
