@@ -50,9 +50,10 @@ namespace PowerLearnCreator.Forms
             this.aflpAccountSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aflpAccountSettings.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.aflpAccountSettings.Location = new System.Drawing.Point(0, 0);
+            this.aflpAccountSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.aflpAccountSettings.Name = "aflpAccountSettings";
-            this.aflpAccountSettings.Padding = new System.Windows.Forms.Padding(5, 10, 10, 10);
-            this.aflpAccountSettings.Size = new System.Drawing.Size(260, 207);
+            this.aflpAccountSettings.Padding = new System.Windows.Forms.Padding(4, 8, 8, 8);
+            this.aflpAccountSettings.Size = new System.Drawing.Size(195, 168);
             this.aflpAccountSettings.TabIndex = 3;
             this.aflpAccountSettings.WrapContents = false;
             // 
@@ -65,11 +66,12 @@ namespace PowerLearnCreator.Forms
             this.tbLastName.Font = new System.Drawing.Font("Arial", 11F);
             this.tbLastName.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.tbLastName.ForeColor = System.Drawing.Color.Black;
-            this.tbLastName.Location = new System.Drawing.Point(8, 13);
+            this.tbLastName.Location = new System.Drawing.Point(6, 10);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Padding = new System.Windows.Forms.Padding(5, 0, 5, 3);
+            this.tbLastName.Padding = new System.Windows.Forms.Padding(4, 0, 4, 2);
             this.tbLastName.SelectionStart = 0;
-            this.tbLastName.Size = new System.Drawing.Size(239, 40);
+            this.tbLastName.Size = new System.Drawing.Size(179, 32);
             this.tbLastName.TabIndex = 7;
             this.tbLastName.TextInput = "";
             this.tbLastName.TextPreview = "Last Name";
@@ -85,11 +87,12 @@ namespace PowerLearnCreator.Forms
             this.tbFirstName.Font = new System.Drawing.Font("Arial", 11F);
             this.tbFirstName.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.tbFirstName.ForeColor = System.Drawing.Color.Black;
-            this.tbFirstName.Location = new System.Drawing.Point(8, 59);
+            this.tbFirstName.Location = new System.Drawing.Point(6, 46);
+            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Padding = new System.Windows.Forms.Padding(5, 0, 5, 3);
+            this.tbFirstName.Padding = new System.Windows.Forms.Padding(4, 0, 4, 2);
             this.tbFirstName.SelectionStart = 0;
-            this.tbFirstName.Size = new System.Drawing.Size(239, 40);
+            this.tbFirstName.Size = new System.Drawing.Size(179, 32);
             this.tbFirstName.TabIndex = 8;
             this.tbFirstName.TextInput = "";
             this.tbFirstName.TextPreview = "First Name";
@@ -105,11 +108,12 @@ namespace PowerLearnCreator.Forms
             this.tbPatronym.Font = new System.Drawing.Font("Arial", 11F);
             this.tbPatronym.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.tbPatronym.ForeColor = System.Drawing.Color.Black;
-            this.tbPatronym.Location = new System.Drawing.Point(8, 105);
+            this.tbPatronym.Location = new System.Drawing.Point(6, 82);
+            this.tbPatronym.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbPatronym.Name = "tbPatronym";
-            this.tbPatronym.Padding = new System.Windows.Forms.Padding(5, 0, 5, 3);
+            this.tbPatronym.Padding = new System.Windows.Forms.Padding(4, 0, 4, 2);
             this.tbPatronym.SelectionStart = 0;
-            this.tbPatronym.Size = new System.Drawing.Size(239, 40);
+            this.tbPatronym.Size = new System.Drawing.Size(179, 32);
             this.tbPatronym.TabIndex = 9;
             this.tbPatronym.TextInput = "";
             this.tbPatronym.TextPreview = "Patronym";
@@ -123,10 +127,11 @@ namespace PowerLearnCreator.Forms
             this.btnSaveAuthor.HoverColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnSaveAuthor.HoverColor2 = System.Drawing.Color.Silver;
             this.btnSaveAuthor.IsRounded = true;
-            this.btnSaveAuthor.Location = new System.Drawing.Point(8, 151);
+            this.btnSaveAuthor.Location = new System.Drawing.Point(6, 118);
+            this.btnSaveAuthor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSaveAuthor.Name = "btnSaveAuthor";
             this.btnSaveAuthor.Rounding = 30;
-            this.btnSaveAuthor.Size = new System.Drawing.Size(239, 40);
+            this.btnSaveAuthor.Size = new System.Drawing.Size(179, 32);
             this.btnSaveAuthor.TabIndex = 6;
             this.btnSaveAuthor.Text = "Save";
             this.btnSaveAuthor.UseVisualStyleBackColor = false;
@@ -134,13 +139,14 @@ namespace PowerLearnCreator.Forms
             // 
             // AuthorEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(260, 207);
+            this.ClientSize = new System.Drawing.Size(195, 168);
             this.Controls.Add(this.aflpAccountSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AuthorEditor";
             this.Text = "AuthorEditor";
             this.Deactivate += new System.EventHandler(this.AuthorEditor_Deactivate);
