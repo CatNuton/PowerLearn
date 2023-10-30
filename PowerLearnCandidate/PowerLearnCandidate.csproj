@@ -89,6 +89,9 @@
     <Compile Include="Controls\SingleAnswerControl.Designer.cs">
       <DependentUpon>SingleAnswerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Stat\StatProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\TextedImageButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
