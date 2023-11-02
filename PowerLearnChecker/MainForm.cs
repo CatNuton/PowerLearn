@@ -30,7 +30,7 @@ namespace PowerLearnChecker
             try
             {
                 r = await FileServer.Instance.Download("verb", "getList", "id", id.ToString());
-                btnDeleteCurrent.Enabled = true;
+                btnDeleteSelectedUser.Enabled = true;
                 btnDeleteTest.Enabled = true;
             }
             catch (Exception ex)
@@ -53,7 +53,7 @@ namespace PowerLearnChecker
             id = int.Parse(tstbId.Text);
         }
 
-        private async void btnDeleteCurrent_Click(object sender, EventArgs e)
+        private async void btnDeleteSelectedUser_Click(object sender, EventArgs e)
         {
             var test = (Test)bindingSource.Current;
             await FileServer.Instance.SendVerb("verb", "deleteCompleted", "id", test.Id.ToString(), "name", test.Name);
