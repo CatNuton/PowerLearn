@@ -15,6 +15,7 @@ namespace PowerLearnCandidate.Controls.Stat
         private string rightText;
         private Color leftColor = Color.FromArgb(102, 187, 106);
         private Color rightColor = Color.FromArgb(255, 112, 67);
+        private int rounding = 30;
         private readonly SolidBrush leftBrush;
         private readonly SolidBrush rightBrush;
         private readonly SolidBrush textBrush;
@@ -87,6 +88,18 @@ namespace PowerLearnCandidate.Controls.Stat
                 Invalidate();
             }
         }
+        public int Rounding
+        {
+            get => rounding; set
+            {
+                if (rounding == value)
+                {
+                    return;
+                }
+                rounding = value;
+                Invalidate();
+            }
+        }
 
         public StatProgressBar()
         {
@@ -107,7 +120,7 @@ namespace PowerLearnCandidate.Controls.Stat
             var h = e.Graphics.MeasureString(leftText, Font).Height;
             h = Math.Max(h, e.Graphics.MeasureString(rightText, Font).Height);
             var rect = new Rectangle(ClientRectangle.Location, new Size(ClientRectangle.Width - 1, (int)(ClientSize.Height - h)));
-            var rounded = rect.Rounded(30);
+            var rounded = rect.Rounded(rounding);
             e.Graphics.FillPath(rightBrush, rounded);
             var w = (int)(Value * (rect.Width - gap) / 100);
             var progressRect = new Rectangle(rect.Location, new Size(w, rect.Height));

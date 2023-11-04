@@ -118,14 +118,16 @@
             // statProgressBar1
             // 
             this.statProgressBar1.BackColor = System.Drawing.Color.Transparent;
+            this.statProgressBar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.statProgressBar1.ForeColor = System.Drawing.Color.White;
             this.statProgressBar1.LeftColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(187)))), ((int)(((byte)(106)))));
             this.statProgressBar1.LeftText = "Правильно";
-            this.statProgressBar1.Location = new System.Drawing.Point(69, 140);
+            this.statProgressBar1.Location = new System.Drawing.Point(29, 164);
             this.statProgressBar1.Name = "statProgressBar1";
             this.statProgressBar1.RightColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(112)))), ((int)(((byte)(67)))));
             this.statProgressBar1.RightText = "Неправильно";
-            this.statProgressBar1.Size = new System.Drawing.Size(612, 73);
+            this.statProgressBar1.Rounding = 30;
+            this.statProgressBar1.Size = new System.Drawing.Size(636, 76);
             this.statProgressBar1.TabIndex = 7;
             this.statProgressBar1.Text = "statProgressBar1";
             this.statProgressBar1.Value = 50F;
