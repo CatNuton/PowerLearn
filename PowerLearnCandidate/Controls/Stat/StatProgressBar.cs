@@ -10,11 +10,16 @@ namespace PowerLearnCandidate.Controls.Stat
 {
     public class StatProgressBar : Control
     {
-        private float _value;
+        private float _value = 50;
         private string leftText;
         private string rightText;
-        private Color leftColor;
-        private Color rightColor;
+        private Color leftColor = Color.FromArgb(102, 187, 106);
+        private Color rightColor = Color.FromArgb(255, 112, 67);
+        private readonly SolidBrush leftBrush;
+        private readonly SolidBrush rightBrush;
+        private readonly SolidBrush textBrush;
+        private readonly SolidBrush gapBrush = new SolidBrush(Color.White);
+        private const int gap = 1;
 
         public float Value
         {
@@ -65,6 +70,7 @@ namespace PowerLearnCandidate.Controls.Stat
                     return;
                 }
                 leftColor = value;
+                leftBrush.Color = leftColor;
                 Invalidate();
             }
         }
@@ -77,6 +83,7 @@ namespace PowerLearnCandidate.Controls.Stat
                     return;
                 }
                 rightColor = value;
+                rightBrush.Color = rightColor;
                 Invalidate();
             }
         }
@@ -87,11 +94,56 @@ namespace PowerLearnCandidate.Controls.Stat
                 | ControlStyles.OptimizedDoubleBuffer
                 | ControlStyles.ResizeRedraw
                 | ControlStyles.SupportsTransparentBackColor, true);
+            textBrush = new SolidBrush(Color.Black);
+            leftBrush = new SolidBrush(leftColor);
+            rightBrush = new SolidBrush(rightColor);
+            ForeColor = Color.White;
+            BackColor = Color.Transparent;
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e);
+            //TODO: Make rounding properties
+            var h = e.Graphics.MeasureString(leftText, Font).Height;
+            h = Math.Max(h, e.Graphics.MeasureString(rightText, Font).Height);
+            var rect = new Rectangle(ClientRectangle.Location, new Size(ClientRectangle.Width - 1, (int)(ClientSize.Height - h)));
+            var rounded = rect.Rounded(30);
+            e.Graphics.FillPath(rightBrush, rounded);
+            var w = (int)(Value * (rect.Width - gap) / 100);
+            var progressRect = new Rectangle(rect.Location, new Size(w, rect.Height));
+            e.Graphics.SetClip(progressRect);
+            e.Graphics.FillPath(leftBrush, rounded);
+            e.Graphics.ResetClip();
+            var gapRect = new Rectangle(rect.Location, new Size(gap, rect.Height));
+            gapRect.Offset(w, 0);
+            e.Graphics.FillRectangle(gapBrush, gapRect);
+            var percentFont = new Font(Font.FontFamily, rect.Height * 0.85f, FontStyle.Bold, GraphicsUnit.Pixel);
+            var sf = new StringFormat { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Far };
+            e.Graphics.DrawString((Value / 100).ToString("p1"), percentFont, textBrush, progressRect, sf);
+            sf.LineAlignment = StringAlignment.Far;
+            if (Value > 0 && Value < 100)
+            {
+                sf.Alignment = StringAlignment.Near;
+                e.Graphics.DrawString(leftText, Font, leftBrush, ClientRectangle, sf);
+                sf.Alignment = StringAlignment.Far;
+                e.Graphics.DrawString(rightText, Font, rightBrush, ClientRectangle, sf);
+            }
+            else if (Value == 100)
+            {
+                sf.Alignment = StringAlignment.Near;
+                e.Graphics.DrawString(leftText, Font, leftBrush, ClientRectangle, sf);
+            }
+            else if (Value == 0)
+            {
+                sf.Alignment = StringAlignment.Far;
+                e.Graphics.DrawString(rightText, Font, rightBrush, ClientRectangle, sf);
+            }
+        }
+
+        protected override void OnForeColorChanged(EventArgs e)
+        {
+            base.OnForeColorChanged(e);
+            textBrush.Color = ForeColor;
         }
     }
 }
