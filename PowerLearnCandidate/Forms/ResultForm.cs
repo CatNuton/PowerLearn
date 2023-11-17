@@ -1,5 +1,6 @@
 ﻿using PowerLearn;
 using PowerLearn.Serialization;
+using PowerLearnCandidate.Controls.Stat;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -15,22 +16,31 @@ namespace PowerLearnCandidate.Forms
         public ResultForm()
         {
             InitializeComponent();
+            HorizontalScroll.Maximum = 0;
         }
 
         public void Build(Test test)
         {
             this.test = test;
+            lblTestName.Text = $"Passed test: '{test.Name}'"; 
             lblScore.Text = $"Your score is {test.Score}";
             lblMaxScore.Text = $"Max score is {test.MaxScore}";
-            lblTestName.Text = $"Thanks for passing test '{test.Name}'!";
             lblTestAuthor.Text = $"Test created by {test.Author.Name.LastName} {test.Author.Name.FirstName}" +
                 $" {test.Author.Name.Patronym}";
             lblTestType.Text = test.Type;
-            lblTestDesription.Text = test.Description;
+            lblTestDescription.Text = test.Description;
             Text = $"{test.Name} Results";
+            aflpQuestions.AutoScroll = false;
+            foreach (var q in test.Questions)
+            {
+                var sdc = new StatDetailCard();
+                sdc.Build(q);
+                aflpQuestions.Controls.Add(sdc);
+            }
+            spbResult.Value = (float)((100 * test.Score) / test.MaxScore);
         }
 
-        public void BuildAndShow(Test test) 
+        public void BuildAndShow(Test test)
         {
             Build(test);
             Show();

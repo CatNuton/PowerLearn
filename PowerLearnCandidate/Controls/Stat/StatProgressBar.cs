@@ -116,7 +116,9 @@ namespace PowerLearnCandidate.Controls.Stat
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            //TODO: Make rounding properties
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             var h = e.Graphics.MeasureString(leftText, Font).Height;
             h = Math.Max(h, e.Graphics.MeasureString(rightText, Font).Height);
             var rect = new Rectangle(ClientRectangle.Location, new Size(ClientRectangle.Width - 1, (int)(ClientSize.Height - h)));
@@ -132,21 +134,23 @@ namespace PowerLearnCandidate.Controls.Stat
             e.Graphics.FillRectangle(gapBrush, gapRect);
             var percentFont = new Font(Font.FontFamily, rect.Height * 0.85f, FontStyle.Bold, GraphicsUnit.Pixel);
             var sf = new StringFormat { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Far };
-            e.Graphics.DrawString((Value / 100).ToString("p1"), percentFont, textBrush, progressRect, sf);
+            var tpv = (Value / 100).ToString("p1");
+            var tw = e.Graphics.MeasureString(tpv, percentFont).Width;
+            if (tw <= progressRect.Width)
+            {
+                e.Graphics.DrawString(tpv, percentFont, textBrush, progressRect, sf);
+            }
+            else
+            {
+                e.Graphics.DrawString(tpv, percentFont, textBrush, gapRect.Right, 0);
+            }
             sf.LineAlignment = StringAlignment.Far;
-            if (Value > 0 && Value < 100)
-            {
-                sf.Alignment = StringAlignment.Near;
-                e.Graphics.DrawString(leftText, Font, leftBrush, ClientRectangle, sf);
-                sf.Alignment = StringAlignment.Far;
-                e.Graphics.DrawString(rightText, Font, rightBrush, ClientRectangle, sf);
-            }
-            else if (Value == 100)
+            if (Value > 0)
             {
                 sf.Alignment = StringAlignment.Near;
                 e.Graphics.DrawString(leftText, Font, leftBrush, ClientRectangle, sf);
             }
-            else if (Value == 0)
+            if (Value < 100)
             {
                 sf.Alignment = StringAlignment.Far;
                 e.Graphics.DrawString(rightText, Font, rightBrush, ClientRectangle, sf);

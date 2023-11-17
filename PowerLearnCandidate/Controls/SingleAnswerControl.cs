@@ -68,6 +68,7 @@ namespace PowerLearnCandidate.Controls
             }
             tbAnswer.Invalidate();
             btnApply.Text = "Apply";
+            tbAnswer.Enabled = false;
         }
 
         public SingleAnswerControl()
@@ -88,6 +89,8 @@ namespace PowerLearnCandidate.Controls
                 pbImage.Image = this.question.Image;
             }
             lblQuestionText.Text = this.question.Text;
+            tbAnswer.Enabled = true;
+            btnApply.Text = "Check";
         }
 
         private void btnApply_Click(object sender, EventArgs e)

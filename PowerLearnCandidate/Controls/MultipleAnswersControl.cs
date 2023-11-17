@@ -61,10 +61,11 @@ namespace PowerLearnCandidate.Controls
 
         public void Build(Question question)
         {
+            btnApply.Text = "Check";
             tlpAnswersPanel.Controls.Clear();
-            tlpAnswersPanel.ColumnStyles.Clear();
+            //tlpAnswersPanel.ColumnStyles.Clear();
             tlpAnswersPanel.ColumnCount = 1;
-            tlpAnswersPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            //tlpAnswersPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             this.question = question;
             if (this.question.Image == null)
             {
@@ -85,13 +86,13 @@ namespace PowerLearnCandidate.Controls
                 {
                     Dock = DockStyle.Fill
                 };
-                tlpAnswersPanel.Controls.Add(av, tlpAnswersPanel.ColumnCount - 1, 0);
-                tlpAnswersPanel.ColumnCount++;
+                tlpAnswersPanel.Controls.Add(av);
+                //tlpAnswersPanel.ColumnCount++;
                 tlpAnswersPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
                 av.Build(answer);
             }
-            tlpAnswersPanel.ColumnStyles.RemoveAt(tlpAnswersPanel.ColumnCount - 1);
-            tlpAnswersPanel.Invalidate();
+            //tlpAnswersPanel.ColumnStyles.RemoveAt(tlpAnswersPanel.ColumnCount - 1);
+            //tlpAnswersPanel.Invalidate();
             widestVariant = tlpAnswersPanel.Controls[0] as AnswerVariant;
             var s = new Size(1, 1);
             for (int i = 1; i < tlpAnswersPanel.Controls.Count; i++)
@@ -154,6 +155,7 @@ namespace PowerLearnCandidate.Controls
                 {
                     variant.BackColor = Color.LightGreen;
                 }
+                variant.Enabled = false;
                 i++;
             }
         }

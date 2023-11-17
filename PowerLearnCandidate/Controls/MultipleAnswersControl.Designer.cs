@@ -45,10 +45,9 @@
             this.lblQuestionText.BackColor = System.Drawing.Color.Black;
             this.lblQuestionText.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblQuestionText.ForeColor = System.Drawing.Color.White;
-            this.lblQuestionText.Location = new System.Drawing.Point(320, 0);
-            this.lblQuestionText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblQuestionText.Location = new System.Drawing.Point(240, 0);
             this.lblQuestionText.Name = "lblQuestionText";
-            this.lblQuestionText.Size = new System.Drawing.Size(635, 203);
+            this.lblQuestionText.Size = new System.Drawing.Size(476, 165);
             this.lblQuestionText.TabIndex = 5;
             this.lblQuestionText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -59,10 +58,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbImage.BackColor = System.Drawing.Color.Black;
             this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImage.Location = new System.Drawing.Point(4, 4);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(4);
+            this.pbImage.Location = new System.Drawing.Point(3, 3);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(308, 195);
+            this.pbImage.Size = new System.Drawing.Size(231, 159);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage.TabIndex = 4;
             this.pbImage.TabStop = false;
@@ -74,12 +72,12 @@
             this.tableLayoutPanel.SetColumnSpan(this.tlpAnswersPanel, 2);
             this.tlpAnswersPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpAnswersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpAnswersPanel.Location = new System.Drawing.Point(4, 207);
-            this.tlpAnswersPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.tlpAnswersPanel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
+            this.tlpAnswersPanel.Location = new System.Drawing.Point(3, 168);
             this.tlpAnswersPanel.Name = "tlpAnswersPanel";
             this.tlpAnswersPanel.RowCount = 1;
             this.tlpAnswersPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpAnswersPanel.Size = new System.Drawing.Size(951, 196);
+            this.tlpAnswersPanel.Size = new System.Drawing.Size(713, 160);
             this.tlpAnswersPanel.TabIndex = 7;
             // 
             // tableLayoutPanel
@@ -92,27 +90,25 @@
             this.tableLayoutPanel.Controls.Add(this.pbImage, 0, 0);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 2;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(959, 407);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(719, 331);
             this.tableLayoutPanel.TabIndex = 8;
             // 
             // btnApply
             // 
-            this.btnApply.BackColor = System.Drawing.Color.White;
+            this.btnApply.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnApply.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnApply.HoverColor1 = System.Drawing.Color.Empty;
             this.btnApply.HoverColor2 = System.Drawing.Color.Empty;
             this.btnApply.IsRounded = true;
-            this.btnApply.Location = new System.Drawing.Point(0, 407);
-            this.btnApply.Margin = new System.Windows.Forms.Padding(4);
+            this.btnApply.Location = new System.Drawing.Point(0, 331);
             this.btnApply.Name = "btnApply";
             this.btnApply.Rounding = 60;
-            this.btnApply.Size = new System.Drawing.Size(959, 74);
+            this.btnApply.Size = new System.Drawing.Size(719, 60);
             this.btnApply.TabIndex = 6;
             this.btnApply.Text = "Check";
             this.btnApply.UseVisualStyleBackColor = false;
@@ -120,15 +116,14 @@
             // 
             // MultipleAnswersControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.btnApply);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(672, 481);
+            this.MinimumSize = new System.Drawing.Size(504, 391);
             this.Name = "MultipleAnswersControl";
-            this.Size = new System.Drawing.Size(959, 481);
+            this.Size = new System.Drawing.Size(719, 391);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.tableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);

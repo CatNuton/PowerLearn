@@ -89,6 +89,24 @@
     <Compile Include="Controls\SingleAnswerControl.Designer.cs">
       <DependentUpon>SingleAnswerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Spoiler\SpoilerControl\Spoiler.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Spoiler\SpoilerControl\TitleAlign.cs" />
+    <Compile Include="Controls\Spoiler\SpoilerControl\TitleBar.cs" />
+    <Compile Include="Controls\Spoiler\Win32Helpers.cs" />
+    <Compile Include="Controls\Stat\StatDetailCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Stat\StatDetailCard.Designer.cs">
+      <DependentUpon>StatDetailCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Stat\StatDetailItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Stat\StatDetailItem.Designer.cs">
+      <DependentUpon>StatDetailItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Stat\StatProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -118,6 +136,11 @@
     <Compile Include="Forms\TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
+    <None Include="..\PowerLearn.Lib\Properties\Resources.resx">
+      <Link>Resources.resx</Link>
+      <Generator>None</Generator>
+      <CustomToolNamespace>PowerLearn.Properties</CustomToolNamespace>
+    </None>
     <EmbeddedResource Include="Controls\AnswerVariant.resx">
       <DependentUpon>AnswerVariant.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +152,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SingleAnswerControl.resx">
       <DependentUpon>SingleAnswerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Stat\StatDetailCard.resx">
+      <DependentUpon>StatDetailCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Stat\StatDetailItem.resx">
+      <DependentUpon>StatDetailItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\TextedImageButton.resx">
       <DependentUpon>TextedImageButton.cs</DependentUpon>
@@ -168,6 +197,9 @@
   <ItemGroup>
     <Content Include="ClientLogo.ico" />
     <Content Include="Images\ButtonStartPNG.png" />
+    <None Include="Images\Checked.png" />
+    <None Include="Images\UnChecked.png" />
+    <None Include="Images\Cursor.png" />
     <None Include="Libs\placeholder.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
