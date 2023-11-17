@@ -1,4 +1,6 @@
-﻿namespace PowerLearnCreator.Controls
+﻿using PowerLearn.Controls;
+
+namespace PowerLearnCreator.Controls
 {
     partial class UserSettings
     {
@@ -28,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.aflpAccountSettings = new PowerLearnCreator.Controls.AdjustableFlowLayoutPanel();
+            this.aflpAccountSettings = new PowerLearn.Controls.AdjustableFlowLayoutPanel();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();

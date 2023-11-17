@@ -5,6 +5,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Linq;
+using System.Drawing.Imaging;
 
 namespace PowerLearn.Serialization
 {
@@ -49,7 +50,7 @@ namespace PowerLearn.Serialization
         {
             using (var ms = new MemoryStream())
             {
-                img.Save(ms, img.RawFormat);
+                img.Save(ms, ImageFormat.Png);
                 var bytes = ms.ToArray();
                 return Convert.ToBase64String(bytes);
             }

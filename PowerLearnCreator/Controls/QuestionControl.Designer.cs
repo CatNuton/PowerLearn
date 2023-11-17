@@ -53,7 +53,7 @@
             // txtbxQuestionText
             // 
             this.txtbxQuestionText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtbxQuestionText.Location = new System.Drawing.Point(5, 142);
+            this.txtbxQuestionText.Location = new System.Drawing.Point(5, 110);
             this.txtbxQuestionText.Margin = new System.Windows.Forms.Padding(4);
             this.txtbxQuestionText.Multiline = true;
             this.txtbxQuestionText.Name = "txtbxQuestionText";
@@ -64,7 +64,7 @@
             // lblQuestionText
             // 
             this.lblQuestionText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblQuestionText.Location = new System.Drawing.Point(5, 114);
+            this.lblQuestionText.Location = new System.Drawing.Point(5, 82);
             this.lblQuestionText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQuestionText.Name = "lblQuestionText";
             this.lblQuestionText.Size = new System.Drawing.Size(948, 23);
@@ -80,11 +80,11 @@
             this.grpAnswers.Controls.Add(this.adjflwpAnswerList);
             this.grpAnswers.Controls.Add(this.pnlControlAnswer);
             this.grpAnswers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpAnswers.Location = new System.Drawing.Point(5, 251);
+            this.grpAnswers.Location = new System.Drawing.Point(5, 219);
             this.grpAnswers.Margin = new System.Windows.Forms.Padding(4);
             this.grpAnswers.Name = "grpAnswers";
             this.grpAnswers.Padding = new System.Windows.Forms.Padding(4);
-            this.grpAnswers.Size = new System.Drawing.Size(948, 272);
+            this.grpAnswers.Size = new System.Drawing.Size(948, 304);
             this.grpAnswers.TabIndex = 8;
             this.grpAnswers.TabStop = false;
             this.grpAnswers.Text = "Answers";
@@ -99,7 +99,7 @@
             this.adjflwpAnswerList.Margin = new System.Windows.Forms.Padding(4);
             this.adjflwpAnswerList.Name = "adjflwpAnswerList";
             this.adjflwpAnswerList.Padding = new System.Windows.Forms.Padding(0, 0, 8, 0);
-            this.adjflwpAnswerList.Size = new System.Drawing.Size(880, 251);
+            this.adjflwpAnswerList.Size = new System.Drawing.Size(880, 283);
             this.adjflwpAnswerList.TabIndex = 1;
             this.adjflwpAnswerList.WrapContents = false;
             // 
@@ -111,7 +111,7 @@
             this.pnlControlAnswer.Location = new System.Drawing.Point(884, 17);
             this.pnlControlAnswer.Margin = new System.Windows.Forms.Padding(4);
             this.pnlControlAnswer.Name = "pnlControlAnswer";
-            this.pnlControlAnswer.Size = new System.Drawing.Size(60, 251);
+            this.pnlControlAnswer.Size = new System.Drawing.Size(60, 283);
             this.pnlControlAnswer.TabIndex = 2;
             // 
             // btnAdd
@@ -159,7 +159,7 @@
             this.pnlImage.Margin = new System.Windows.Forms.Padding(4);
             this.pnlImage.Name = "pnlImage";
             this.pnlImage.Padding = new System.Windows.Forms.Padding(4);
-            this.pnlImage.Size = new System.Drawing.Size(948, 104);
+            this.pnlImage.Size = new System.Drawing.Size(948, 72);
             this.pnlImage.TabIndex = 11;
             // 
             // lblMessage
@@ -171,7 +171,7 @@
             this.lblMessage.Location = new System.Drawing.Point(4, 4);
             this.lblMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(940, 96);
+            this.lblMessage.Size = new System.Drawing.Size(940, 64);
             this.lblMessage.TabIndex = 15;
             this.lblMessage.Text = "Double click here to open and add image!";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -187,7 +187,7 @@
             this.pctrQuestionImage.Location = new System.Drawing.Point(4, 4);
             this.pctrQuestionImage.Margin = new System.Windows.Forms.Padding(4);
             this.pctrQuestionImage.Name = "pctrQuestionImage";
-            this.pctrQuestionImage.Size = new System.Drawing.Size(936, 92);
+            this.pctrQuestionImage.Size = new System.Drawing.Size(936, 60);
             this.pctrQuestionImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctrQuestionImage.TabIndex = 14;
             this.pctrQuestionImage.TabStop = false;

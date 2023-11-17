@@ -61,9 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\AddImageEventArgs.cs" />
-    <Compile Include="Controls\AdjustableFlowLayoutPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controls\AnswersFlowLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -12,7 +12,7 @@ namespace PowerLearn
         public string Text { get; set; } = "New Answer";
         [Browsable(false)]
         public string EnteredAnswer { get; set; }
-        public int Weight { get; set; }
+        public float Weight { get; set; }
         [Browsable(false)]
         public bool IsRight { get; set; } 
         [Browsable(false)]

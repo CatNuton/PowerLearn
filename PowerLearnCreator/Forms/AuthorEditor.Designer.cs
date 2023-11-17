@@ -30,7 +30,7 @@ namespace PowerLearnCreator.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.aflpAccountSettings = new PowerLearnCreator.Controls.AdjustableFlowLayoutPanel();
+            this.aflpAccountSettings = new PowerLearn.Controls.AdjustableFlowLayoutPanel();
             this.tbLastName = new PowerLearn.Controls.GoogleTextBox();
             this.tbFirstName = new PowerLearn.Controls.GoogleTextBox();
             this.tbPatronym = new PowerLearn.Controls.GoogleTextBox();
@@ -158,7 +158,7 @@ namespace PowerLearnCreator.Forms
 
         #endregion
 
-        private Controls.AdjustableFlowLayoutPanel aflpAccountSettings;
+        private AdjustableFlowLayoutPanel aflpAccountSettings;
         private PowerLearn.Controls.RoundedButton btnSaveAuthor;
         private PowerLearn.Controls.GoogleTextBox tbPatronym;
         private GoogleTextBox tbFirstName;

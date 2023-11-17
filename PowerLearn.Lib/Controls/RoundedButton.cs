@@ -17,7 +17,14 @@ namespace PowerLearn.Controls
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             e.Graphics.Clear(Parent.BackColor);
             //e.Graphics.SetClip(Path);
-            e.Graphics.FillPath(backBrush, Path);
+            if (Enabled)
+            {
+                e.Graphics.FillPath(backBrush, Path); 
+            }
+            else
+            {
+                e.Graphics.FillPath(SystemBrushes.Control, Path);
+            }
             DrawText(e.Graphics);
             if (mouseEntered)
             {

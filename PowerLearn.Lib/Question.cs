@@ -9,7 +9,22 @@ namespace PowerLearn
     {
         public string Text { get; set; }
         public List<Answer> Answers { get; set; } = new List<Answer> { };
-        public double Score => GetScore();
+        public float Score => GetScore();
+        public float MaxScore => GetMaxScore();
+
+        private float GetMaxScore()
+        {
+            var r = 0f;
+            foreach (var item in Answers)
+            {
+                if (item.IsRight)
+                {
+                    r += item.Weight;
+                }
+            }
+            return r;
+        }
+
         [XmlIgnore]
         public Image Image { get; set; }
         public QuestionType Type { get; private set; }
@@ -29,9 +44,9 @@ namespace PowerLearn
         {
         }
 
-        private double GetScore()
+        private float GetScore()
         {
-            var result = 0.0;
+            var result = 0f;
             if (Type == QuestionType.MultipleAnswers)
             {
                 foreach (var item in Answers)

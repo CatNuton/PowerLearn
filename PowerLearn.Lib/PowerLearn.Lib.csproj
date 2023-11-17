@@ -58,6 +58,9 @@
     <Compile Include="Animator\Animator.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="Candidate.cs" />
+    <Compile Include="Controls\AdjustableFlowLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\RoundedHelper.cs" />
     <Compile Include="Controls\Rounded.cs">
       <SubType>Component</SubType>
@@ -70,7 +73,15 @@
     <Compile Include="Controls\GoogleTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="QuestionType.cs" />
+    <Compile Include="Controls\RectangleFigure.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Serialization\Helper.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Persons.cs" />
@@ -80,6 +91,18 @@
     <Compile Include="Tests.cs" />
     <Compile Include="Tools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PowerLearn;
+using PowerLearn.Controls;
 using PowerLearnCreator.Controls;
 using QuestionEventArgs = PowerLearnCreator.Controls.QuestionEventArgs;
 

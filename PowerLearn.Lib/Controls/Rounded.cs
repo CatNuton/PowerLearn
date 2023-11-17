@@ -75,6 +75,7 @@ namespace PowerLearn.Controls
         {
             base.OnCreateControl();
             textBrush = new SolidBrush(ForeColor);
+            BackColor = SystemColors.ControlLight;
             backBrush = new SolidBrush(BackColor);
 
             hoverBrush = new LinearGradientBrush(new Point(0, 0),

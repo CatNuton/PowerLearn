@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PowerLearnCreator.Controls
+namespace PowerLearn.Controls
 {
     public class AdjustableFlowLayoutPanel : FlowLayoutPanel
     {
@@ -45,7 +46,14 @@ namespace PowerLearnCreator.Controls
         {
             base.OnControlAdded(e);
             e.Control.Width = CalcControlWidth(e.Control);
-            ScrollControlIntoView(e.Control);
+            if (AutoScroll)
+            {
+                ScrollControlIntoView(e.Control);
+            }
+            else
+            {
+                ClientSize = new Size(Width, e.Control.Bottom + e.Control.Margin.Bottom + Padding.Bottom);
+            }
         }
     }
 }

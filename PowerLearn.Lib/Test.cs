@@ -21,7 +21,7 @@ namespace PowerLearn
         [Category("Test"), DisplayName("Can lerners see all questions?")]
         public bool CanLernersSeeAllQuestions { get; set; }
         [Browsable(false)]
-        public int MaxScore => GetMaxScore();
+        public float MaxScore => GetMaxScore();
         [Browsable(false)]
         public int Id { get; set; }
         [Browsable(false)]
@@ -36,9 +36,9 @@ namespace PowerLearn
             Uploaded = false;
         }
 
-        private int GetMaxScore()
+        private float GetMaxScore()
         {
-            var result = 0;
+            var result = 0f;
             foreach (var item in Questions)
             {
                 result += GetQuestionsMaxScore(item);
@@ -46,22 +46,16 @@ namespace PowerLearn
             return result;
         }
 
-        private int GetQuestionsMaxScore(Question q)
+        private float GetQuestionsMaxScore(Question q)
         {
-            var result = 0;
+            var result = 0f;
             if (q.Type == QuestionType.SingleAnswer)
             {
                 result = q.Answers[0].Weight;
             }
             else if (q.Type == QuestionType.MultipleAnswers)
             {
-                foreach (var item in q.Answers)
-                {
-                    if (item.IsRight)
-                    {
-                        result += item.Weight;
-                    }
-                }
+                result = q.MaxScore;
             }
             return result;
         }
@@ -69,11 +63,11 @@ namespace PowerLearn
         [Browsable(false)]
         public List<Question> Questions { get; set; } = new List<Question> { };
         [Browsable(false)]
-        public double Score => GetScore();
+        public float Score => GetScore();
 
-        private double GetScore()
+        private float GetScore()
         {
-            var result = 0.0;
+            var result = 0f;
             foreach (var item in Questions)
             {
                 result += item.Score;
