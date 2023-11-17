@@ -30,7 +30,7 @@ namespace PowerLearnCandidate.Forms
             lblTestType.Text = test.Type;
             lblTestDescription.Text = test.Description;
             Text = $"{test.Name} Results";
-            aflpQuestions.AutoScroll = false;
+            //aflpQuestions.AutoScroll = false;
             foreach (var q in test.Questions)
             {
                 var sdc = new StatDetailCard();
@@ -46,7 +46,8 @@ namespace PowerLearnCandidate.Forms
             Show();
         }
 
-        private async void btnUploadResult_Click(object sender, System.EventArgs e)
+
+        private async void ResultForm_Shown(object sender, System.EventArgs e)
         {
             var filePath = Path.GetTempFileName();
             using (var sw = new StreamWriter(filePath))
@@ -59,7 +60,16 @@ namespace PowerLearnCandidate.Forms
                 "name", test.Candidate.Name.ToString(),
                 "max", test.MaxScore.ToString(),
                 "score", test.Score.ToString());
-            Close();
+        }
+
+        private void spQuestions_SpoilerCollapsed(object sender, System.EventArgs e)
+        {
+            Height -= spQuestions.FullHeight;
+        }
+
+        private void spQuestions_SpoilerUncollapsed(object sender, System.EventArgs e)
+        {
+            Height += spQuestions.FullHeight;
         }
     }
 }

@@ -9,8 +9,12 @@ namespace PowerLearnCandidate.Controls
 {
     public class Spoiler : Panel
     {
+        public event EventHandler SpoilerCollapsed;
+        public event EventHandler SpoilerUncollapsed;
         private readonly TitleBar titleBar;
         private bool showTitlebar = true;
+
+        public int FullHeight => fullHeight-titleBar.Height;
         [DefaultValue(true)]
         public bool ShowTitlebar
         {
@@ -96,14 +100,25 @@ namespace PowerLearnCandidate.Controls
                 fullHeight = Height;
                 Height = titleBar.Height;
                 titleBar.Text = collapsedText;
+                OnSpoilerCollapsed();
             }
             else
             {
                 Height = fullHeight;
                 titleBar.Text = uncollapsedText;
+                OnSpoilerUncollapsed();
             }
         }
 
+        protected virtual void OnSpoilerCollapsed()
+        {
+            SpoilerCollapsed?.Invoke(this, EventArgs.Empty);
+        }
+
+        protected virtual void OnSpoilerUncollapsed()
+        {
+            SpoilerUncollapsed?.Invoke(this, EventArgs.Empty);
+        }
 
         public virtual Rectangle GetTitlebarRectangle()
         {
