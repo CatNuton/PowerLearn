@@ -9,25 +9,10 @@ using System.Windows.Forms;
 
 namespace PowerLearnCandidate.Controls
 {
-    public class RectangleFigure : Control
+    public class RoundTableLayoutPanel : TableLayoutPanel
     {
-        private Color color = Color.LightGray;
         private SolidBrush brush;
         private int rounding;
-
-        public Color Color
-        {
-            get => color; set
-            {
-                if (color == value)
-                {
-                    return;
-                }
-                color = value;
-                brush.Color = color;
-                Invalidate();
-            }
-        }
         public int Rounding
         {
             get => rounding; set
@@ -41,12 +26,15 @@ namespace PowerLearnCandidate.Controls
             }
         }
 
-        public RectangleFigure()
+        public RoundTableLayoutPanel()
         {
+            brush = new SolidBrush(BackColor);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            base.OnPaint(e);
+            brush.Color = BackColor;
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             var rect = ClientRectangle.Rounded(rounding);

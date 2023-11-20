@@ -49,20 +49,18 @@
             this.tlpMain.Controls.Add(this.lblAnswerWeight, 2, 0);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
-            this.tlpMain.Margin = new System.Windows.Forms.Padding(4);
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 1;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.Size = new System.Drawing.Size(371, 35);
+            this.tlpMain.Size = new System.Drawing.Size(304, 38);
             this.tlpMain.TabIndex = 0;
             // 
             // pbCheckedImage
             // 
-            this.pbCheckedImage.Location = new System.Drawing.Point(4, 4);
-            this.pbCheckedImage.Margin = new System.Windows.Forms.Padding(4);
+            this.pbCheckedImage.Location = new System.Drawing.Point(3, 3);
             this.pbCheckedImage.Name = "pbCheckedImage";
-            this.pbCheckedImage.Size = new System.Drawing.Size(29, 27);
-            this.pbCheckedImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbCheckedImage.Size = new System.Drawing.Size(34, 34);
+            this.pbCheckedImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbCheckedImage.TabIndex = 0;
             this.pbCheckedImage.TabStop = false;
             // 
@@ -71,10 +69,9 @@
             this.lblAnswerText.AutoSize = true;
             this.lblAnswerText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblAnswerText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblAnswerText.Location = new System.Drawing.Point(41, 0);
-            this.lblAnswerText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAnswerText.Location = new System.Drawing.Point(31, 0);
             this.lblAnswerText.Name = "lblAnswerText";
-            this.lblAnswerText.Size = new System.Drawing.Size(159, 35);
+            this.lblAnswerText.Size = new System.Drawing.Size(127, 28);
             this.lblAnswerText.TabIndex = 1;
             this.lblAnswerText.Text = "lblAnswerText";
             this.lblAnswerText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -84,25 +81,23 @@
             this.lblAnswerWeight.AutoSize = true;
             this.lblAnswerWeight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblAnswerWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblAnswerWeight.Location = new System.Drawing.Point(208, 0);
-            this.lblAnswerWeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAnswerWeight.Location = new System.Drawing.Point(164, 0);
             this.lblAnswerWeight.Name = "lblAnswerWeight";
-            this.lblAnswerWeight.Size = new System.Drawing.Size(159, 35);
+            this.lblAnswerWeight.Size = new System.Drawing.Size(127, 28);
             this.lblAnswerWeight.TabIndex = 2;
             this.lblAnswerWeight.Text = "lblAnswerWeight";
             this.lblAnswerWeight.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // StatDetailItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.tlpMain);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StatDetailItem";
-            this.Size = new System.Drawing.Size(371, 35);
+            this.Size = new System.Drawing.Size(304, 38);
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheckedImage)).EndInit();

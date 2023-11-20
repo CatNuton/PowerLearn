@@ -79,7 +79,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="QuestionType.cs" />
-    <Compile Include="Controls\RectangleFigure.cs">
+    <Compile Include="Controls\RoundTableLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Serialization\Helper.cs" />

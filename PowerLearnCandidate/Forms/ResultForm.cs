@@ -29,6 +29,8 @@ namespace PowerLearnCandidate.Forms
                 $" {test.Author.Name.Patronym}";
             lblTestType.Text = test.Type;
             lblTestDescription.Text = test.Description;
+            lblQuestionCount.Text = test.Questions.Count.ToString();
+            lblCandidateHeader.Text = $"Result of {test.Candidate}:";
             Text = $"{test.Name} Results";
             //aflpQuestions.AutoScroll = false;
             foreach (var q in test.Questions)
@@ -37,6 +39,21 @@ namespace PowerLearnCandidate.Forms
                 sdc.Build(q);
                 aflpQuestions.Controls.Add(sdc);
             }
+            int cc = 0;
+            int ic = 0;
+            foreach (var question in test.Questions)
+            {
+                if (question.Score == question.MaxScore)
+                {
+                    cc++;
+                }
+                else
+                {
+                    ic++;
+                }
+            }
+            lblRightAnswersCount.Text = $"{cc} Correct";
+            lblIncorrectAnswersCount.Text = $"{ic} Incorrect";
             spbResult.Value = (float)((100 * test.Score) / test.MaxScore);
         }
 
