@@ -46,7 +46,7 @@ namespace PowerLearnCreator.Controls
                 pctrQuestionImage.Image = null;
                 lblMessage.BringToFront();
             }
-            txtbxQuestionText.Text = Question.Text;
+            gtbQuestionText.Text = Question.Text;
             adjflwpAnswerList.Controls.Clear();
             foreach (var item in Question.Answers)
             {
@@ -86,7 +86,7 @@ namespace PowerLearnCreator.Controls
         }
         private void txtbxQuestionText_TextChanged(object sender, EventArgs e)
         {
-            Question.Text = txtbxQuestionText.Text;
+            Question.Text = gtbQuestionText.Text;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
