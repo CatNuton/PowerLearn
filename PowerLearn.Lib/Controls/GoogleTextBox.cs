@@ -151,7 +151,7 @@ namespace PowerLearn.Controls
                 Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom,
             };
 
-            var offset = TextRenderer.MeasureText(TextPreview, FontTextPreview).Height / 2;
+            var offset = TextRenderer.MeasureText(TextPreview, FontTextPreview).Height;
             tbInput.Location = new Point(8, Height / 2 - offset);
             tbInput.Size = new Size(Width - 10, tbInput.Height);
 

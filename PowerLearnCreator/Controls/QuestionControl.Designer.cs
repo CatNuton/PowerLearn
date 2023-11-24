@@ -28,43 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grpAnswers = new System.Windows.Forms.GroupBox();
+            this.components = new System.ComponentModel.Container();
+            this.tlpAnswers = new System.Windows.Forms.TableLayoutPanel();
             this.adjflwpAnswerList = new PowerLearnCreator.Controls.AnswersFlowLayoutPanel();
-            this.pnlControlAnswer = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.gtbQuestionText = new PowerLearn.Controls.GoogleTextBox();
             this.pnlImage = new System.Windows.Forms.Panel();
             this.lblMessage = new System.Windows.Forms.Label();
             this.pctrQuestionImage = new System.Windows.Forms.PictureBox();
-            this.cmsImageContextPanel = new System.Windows.Forms.ContextMenuStrip();
+            this.cmsImageContextPanel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dlgOpen = new System.Windows.Forms.OpenFileDialog();
-            this.grpAnswers.SuspendLayout();
-            this.pnlControlAnswer.SuspendLayout();
+            this.tlpAnswers.SuspendLayout();
             this.tlpMain.SuspendLayout();
             this.pnlImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrQuestionImage)).BeginInit();
             this.cmsImageContextPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // grpAnswers
+            // tlpAnswers
             // 
-            this.grpAnswers.AutoSize = true;
-            this.grpAnswers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.grpAnswers.BackColor = System.Drawing.Color.White;
-            this.tlpMain.SetColumnSpan(this.grpAnswers, 2);
-            this.grpAnswers.Controls.Add(this.adjflwpAnswerList);
-            this.grpAnswers.Controls.Add(this.pnlControlAnswer);
-            this.grpAnswers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpAnswers.Location = new System.Drawing.Point(5, 210);
-            this.grpAnswers.Margin = new System.Windows.Forms.Padding(4);
-            this.grpAnswers.Name = "grpAnswers";
-            this.grpAnswers.Padding = new System.Windows.Forms.Padding(4);
-            this.grpAnswers.Size = new System.Drawing.Size(948, 313);
-            this.grpAnswers.TabIndex = 8;
-            this.grpAnswers.TabStop = false;
-            this.grpAnswers.Text = "Answers";
+            this.tlpAnswers.ColumnCount = 2;
+            this.tlpMain.SetColumnSpan(this.tlpAnswers, 2);
+            this.tlpAnswers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpAnswers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpAnswers.Controls.Add(this.adjflwpAnswerList, 0, 0);
+            this.tlpAnswers.Controls.Add(this.btnAdd, 1, 0);
+            this.tlpAnswers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpAnswers.Location = new System.Drawing.Point(4, 209);
+            this.tlpAnswers.Name = "tlpAnswers";
+            this.tlpAnswers.RowCount = 1;
+            this.tlpAnswers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpAnswers.Size = new System.Drawing.Size(950, 315);
+            this.tlpAnswers.TabIndex = 2;
             // 
             // adjflwpAnswerList
             // 
@@ -72,33 +69,24 @@
             this.adjflwpAnswerList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.adjflwpAnswerList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adjflwpAnswerList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.adjflwpAnswerList.Location = new System.Drawing.Point(4, 17);
+            this.adjflwpAnswerList.Location = new System.Drawing.Point(4, 4);
             this.adjflwpAnswerList.Margin = new System.Windows.Forms.Padding(4);
             this.adjflwpAnswerList.Name = "adjflwpAnswerList";
             this.adjflwpAnswerList.Padding = new System.Windows.Forms.Padding(0, 0, 8, 0);
-            this.adjflwpAnswerList.Size = new System.Drawing.Size(880, 292);
+            this.adjflwpAnswerList.Size = new System.Drawing.Size(894, 307);
             this.adjflwpAnswerList.TabIndex = 1;
             this.adjflwpAnswerList.WrapContents = false;
             // 
-            // pnlControlAnswer
-            // 
-            this.pnlControlAnswer.BackColor = System.Drawing.Color.White;
-            this.pnlControlAnswer.Controls.Add(this.btnAdd);
-            this.pnlControlAnswer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlControlAnswer.Location = new System.Drawing.Point(884, 17);
-            this.pnlControlAnswer.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlControlAnswer.Name = "pnlControlAnswer";
-            this.pnlControlAnswer.Size = new System.Drawing.Size(60, 292);
-            this.pnlControlAnswer.TabIndex = 2;
-            // 
             // btnAdd
             // 
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnAdd.Location = new System.Drawing.Point(0, 0);
+            this.btnAdd.AutoSize = true;
+            this.btnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAdd.Location = new System.Drawing.Point(906, 4);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(60, 38);
+            this.btnAdd.Padding = new System.Windows.Forms.Padding(3);
+            this.btnAdd.Size = new System.Drawing.Size(40, 41);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -112,7 +100,7 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69F));
             this.tlpMain.Controls.Add(this.gtbQuestionText, 1, 0);
             this.tlpMain.Controls.Add(this.pnlImage, 0, 0);
-            this.tlpMain.Controls.Add(this.grpAnswers, 0, 1);
+            this.tlpMain.Controls.Add(this.tlpAnswers, 0, 1);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Margin = new System.Windows.Forms.Padding(4);
@@ -120,6 +108,7 @@
             this.tlpMain.RowCount = 2;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.Size = new System.Drawing.Size(958, 528);
             this.tlpMain.TabIndex = 12;
             // 
@@ -130,8 +119,7 @@
             this.gtbQuestionText.BorderColorNotActive = System.Drawing.Color.DarkGray;
             this.gtbQuestionText.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.gtbQuestionText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gtbQuestionText.Font = new System.Drawing.Font("Arial", 11.25F);
-            this.gtbQuestionText.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.gtbQuestionText.FontTextPreview = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.gtbQuestionText.ForeColor = System.Drawing.Color.Black;
             this.gtbQuestionText.Location = new System.Drawing.Point(301, 4);
             this.gtbQuestionText.Multiline = true;
@@ -215,8 +203,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuestionControl";
             this.Size = new System.Drawing.Size(958, 528);
-            this.grpAnswers.ResumeLayout(false);
-            this.pnlControlAnswer.ResumeLayout(false);
+            this.tlpAnswers.ResumeLayout(false);
+            this.tlpAnswers.PerformLayout();
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.pnlImage.ResumeLayout(false);
@@ -227,8 +215,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox grpAnswers;
-        private System.Windows.Forms.Panel pnlControlAnswer;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TableLayoutPanel tlpMain;
         private System.Windows.Forms.Panel pnlImage;
@@ -239,5 +225,6 @@
         private System.Windows.Forms.ContextMenuStrip cmsImageContextPanel;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private PowerLearn.Controls.GoogleTextBox gtbQuestionText;
+        private System.Windows.Forms.TableLayoutPanel tlpAnswers;
     }
 }
