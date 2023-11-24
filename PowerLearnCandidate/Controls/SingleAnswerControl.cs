@@ -87,6 +87,7 @@ namespace PowerLearnCandidate.Controls
             else
             {
                 pbImage.Image = this.question.Image;
+                pbImage.Visible = true;
             }
             lblQuestionText.Text = this.question.Text;
             tbAnswer.Enabled = true;

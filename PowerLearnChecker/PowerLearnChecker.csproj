@@ -118,6 +118,7 @@
     <Content Include="check-mark.ico" />
     <None Include="Images\Delete Current.png" />
     <None Include="Images\Delete Test.png" />
+    <Content Include="Images\Search - Copy.png" />
     <Content Include="Images\Search.png" />
   </ItemGroup>
   <ItemGroup>

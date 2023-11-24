@@ -78,6 +78,7 @@ namespace PowerLearnCandidate.Controls
                 tableLayoutPanel.ColumnStyles[0].SizeType = SizeType.Percent;
                 tableLayoutPanel.ColumnStyles[0].Width = 33;
                 pbImage.Image = this.question.Image;
+                pbImage.Visible = true;
             }
             lblQuestionText.Text = question.Text;
             foreach (var answer in question.Answers)

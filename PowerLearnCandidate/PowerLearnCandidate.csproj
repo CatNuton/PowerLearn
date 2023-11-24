@@ -196,10 +196,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientLogo.ico" />
-    <Content Include="Images\ButtonStartPNG.png" />
-    <None Include="Images\Checked.png" />
-    <None Include="Images\UnChecked.png" />
-    <None Include="Images\Cursor.png" />
     <None Include="Libs\placeholder.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -209,6 +205,9 @@
       <Project>{3996ccfb-a081-4ada-8e4d-9e315b8a0bb3}</Project>
       <Name>PowerLearn.Lib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
