@@ -14,7 +14,13 @@ namespace PowerLearn.Controls
     {
         #region -- Свойства --
         public string TextPreview { get; set; } = "Input text";
-
+        public bool Multiline
+        {
+            get => tbInput.Multiline; set
+            {
+                tbInput.Multiline = value;
+            }
+        }
         private Font fontTextPreview = new Font("Arial", 8, FontStyle.Bold);
         public Font FontTextPreview
         {
@@ -39,7 +45,7 @@ namespace PowerLearn.Controls
             {
                 tbInput.Text = value;
                 if (!tbInput.Focused)
-                    TextPreviewAction(TextInput.Length > 0);
+                    TextPreviewAction(Text.Length > 0);
             }
         }
 
@@ -56,7 +62,7 @@ namespace PowerLearn.Controls
             {
                 tbInput.Text = value;
                 if (!tbInput.Focused)
-                    TextPreviewAction(TextInput.Length > 0);
+                    TextPreviewAction(Text.Length > 0);
             }
         }
 
@@ -99,7 +105,7 @@ namespace PowerLearn.Controls
             LineAlignment = StringAlignment.Center
         };
         private int TopBorderOffset = 0;
-        private TextBox tbInput = new TextBox();
+        private TextBox tbInput = new TextBox { Dock = DockStyle.Fill};
         private Animation LocationTextPreviewAnim = new Animation();
         private Animation FontSizeTextPreviewAnim = new Animation();
 
@@ -129,7 +135,7 @@ namespace PowerLearn.Controls
         {
             base.OnCreateControl();
 
-            TextPreviewAction(TextInput.Length > 0);
+            TextPreviewAction(Text.Length > 0);
         }
 
         private void AdjustTextBoxInput()
@@ -141,7 +147,8 @@ namespace PowerLearn.Controls
                 BackColor = BackColor,
                 ForeColor = ForeColor,
                 Font = Font,
-                Visible = false
+                Visible = false,
+                Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom,
             };
 
             var offset = TextRenderer.MeasureText(TextPreview, FontTextPreview).Height / 2;
@@ -256,7 +263,7 @@ namespace PowerLearn.Controls
             }
             else
             {
-                if (TextInput.Length == 0)
+                if (Text.Length == 0)
                 {
                     LocationTextPreviewAnim = new Animation("TextPreviewLocationY" + Handle, Invalidate, LocationTextPreviewAnim.Value, tbInput.Location.Y);
                     FontSizeTextPreviewAnim = new Animation("TextPreviewFontSize" + Handle, Invalidate, FontSizeTextPreviewAnim.Value, Font.Size);
