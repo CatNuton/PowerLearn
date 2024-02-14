@@ -124,11 +124,7 @@ namespace PowerLearnCreator
         {
             if (string.IsNullOrEmpty(savedFilePath))
             {
-                if (saveFileDialog.ShowDialog() != DialogResult.OK)
-                {
-                    return;
-                }
-                savedFilePath = saveFileDialog.FileName;
+                SaveAs();
             }
             SaveFile();
             UpdateInterface();
@@ -154,13 +150,18 @@ namespace PowerLearnCreator
 
         private void btnSaveTestAs_Click(object sender, EventArgs e)
         {
+            SaveAs();
+            SaveFile();
+            UpdateInterface();
+        }
+
+        private void SaveAs()
+        {
             if (saveFileDialog.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
             savedFilePath = saveFileDialog.FileName;
-            SaveFile();
-            UpdateInterface();
         }
 
         private void SaveFile()
@@ -313,6 +314,31 @@ namespace PowerLearnCreator
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        private void CreatorForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (currentTest != null)
+            {
+                var result = MessageBox.Show($"Save changes in file {currentTest.Name}.xml before closing?",
+                    Application.ProductName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    if (savedFilePath != null)
+                    {
+                        SaveFile();
+                    }
+                    else
+                    {
+                        SaveAs();
+                        SaveFile();
+                    }
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }
