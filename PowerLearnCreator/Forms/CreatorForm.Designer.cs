@@ -106,7 +106,6 @@
             // btnSave
             // 
             this.btnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSave.Enabled = false;
             this.btnSave.Image = global::PowerLearnCreator.Properties.Resources.Save;
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
@@ -117,7 +116,6 @@
             // btnSaveAs
             // 
             this.btnSaveAs.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSaveAs.Enabled = false;
             this.btnSaveAs.Image = global::PowerLearnCreator.Properties.Resources.Save_as;
             this.btnSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSaveAs.Name = "btnSaveAs";
@@ -137,8 +135,8 @@
             this.btnCreateQuestion.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCreateQuestion.Name = "btnCreateQuestion";
             this.btnCreateQuestion.SelectedValue = PowerLearn.QuestionType.MultipleAnswers;
-            this.btnCreateQuestion.Size = new System.Drawing.Size(116, 24);
-            this.btnCreateQuestion.Text = "Add Question";
+            this.btnCreateQuestion.Size = new System.Drawing.Size(149, 24);
+            this.btnCreateQuestion.Text = "Select question type";
             this.btnCreateQuestion.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.btnCreateQuestion_DropDownItemClicked);
             // 
             // btnTest
@@ -242,7 +240,7 @@
             this.QuestionControlPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.QuestionControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.QuestionControlPanel.Location = new System.Drawing.Point(0, 0);
-            this.QuestionControlPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.QuestionControlPanel.Margin = new System.Windows.Forms.Padding(4);
             this.QuestionControlPanel.Name = "QuestionControlPanel";
             this.QuestionControlPanel.QuestionText = null;
             this.QuestionControlPanel.Size = new System.Drawing.Size(689, 353);
@@ -261,7 +259,7 @@
             this.Controls.Add(this.spltTestCreator);
             this.Controls.Add(this.ToolStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(806, 419);
+            this.MinimumSize = new System.Drawing.Size(806, 418);
             this.Name = "CreatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "0";

@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using PowerLearn;
@@ -66,8 +60,6 @@ namespace PowerLearnCreator
         {
             Text = $"Power Learn Creator - {currentTest.Name}";
             adjflQuestionList.Build(currentTest);
-            btnSave.Enabled = currentTest.Author != null;
-            btnSaveAs.Enabled = currentTest.Author != null;
             btnCreateQuestion.Enabled = true;
             btnTest.Enabled = !string.IsNullOrEmpty(savedFilePath);
             btnTestOptions.Enabled = true;
@@ -122,6 +114,12 @@ namespace PowerLearnCreator
 
         private void btnSaveTest_Click(object sender, EventArgs e)
         {
+            if (!isNameWritten())
+            {
+                ShowExeption();
+                return;
+            }
+
             if (string.IsNullOrEmpty(savedFilePath))
             {
                 SaveAs();
@@ -150,9 +148,28 @@ namespace PowerLearnCreator
 
         private void btnSaveTestAs_Click(object sender, EventArgs e)
         {
+            if (!isNameWritten())
+            {
+                ShowExeption();
+                return;
+            }
             SaveAs();
             SaveFile();
             UpdateInterface();
+        }
+
+        private void ShowExeption()
+        {
+            if (currentTest == null)
+            {
+                MessageBox.Show("Cannot save your project because test is not created\\loaded yet.", "PowerPoint error",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (currentTest.Author == null && currentTest.Author == null)
+            {
+                MessageBox.Show("Cannot save your project because the name of the test creator is not specified.",
+                    "PowerPoint error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void SaveAs()
@@ -162,6 +179,11 @@ namespace PowerLearnCreator
                 return;
             }
             savedFilePath = saveFileDialog.FileName;
+        }
+
+        private bool isNameWritten()
+        {
+            return currentTest != null && currentTest.Author != null && currentTest.Author.Name != null ? true : false;
         }
 
         private void SaveFile()
